@@ -1,0 +1,32 @@
+[package]
+name = "strata-ui"
+description = "Strata: what the window shows, as plain Rust (no Qt): rows, nesting, settings it stores"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+publish = false
+
+[dependencies]
+strata-archive.workspace = true
+strata-core.workspace = true
+strata-diag.workspace = true
+strata-game.workspace = true
+strata-ini.workspace = true
+strata-launch.workspace = true
+strata-install.workspace = true
+strata-loot.workspace = true
+strata-nexus.workspace = true
+strata-vfs.workspace = true
+texture2ddecoder.workspace = true
+regex.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+thiserror.workspace = true
+ureq.workspace = true
+
+[dev-dependencies]
+strata-nexus = { workspace = true, features = ["test-support"] }
+tempfile.workspace = true
+
+[lints]
+workspace = true

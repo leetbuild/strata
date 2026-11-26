@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Strata
+GenericName=Mod Manager
+Comment=Linux-native mod manager for Bethesda games (Mod Organizer 2 compatible)
+Exec=strata
+Icon=strata
+Terminal=false
+Categories=Game;
+Keywords=mod;mods;modding;skyrim;mo2;
+StartupWMClass=strata

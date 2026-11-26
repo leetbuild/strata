@@ -1,0 +1,28 @@
+[package]
+name = "strata-ffi"
+description = "Strata: everything that crosses the Rust/C++ boundary"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+publish = false
+
+# The static library CMake links into `build/strata` (Corrosion). Its symbols only resolve
+# together with the C++ shell, so it has no cargo tests of its own: keep logic out of it.
+[lib]
+name = "strata_ffi"
+crate-type = ["staticlib", "lib"]
+test = false
+doctest = false
+
+[dependencies]
+strata-cli.workspace = true
+strata-core.workspace = true
+cxx.workspace = true
+strata-ini.workspace = true
+strata-install.workspace = true
+strata-loot.workspace = true
+serde_json.workspace = true
+strata-ui.workspace = true
+
+[lints]
+workspace = true

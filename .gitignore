@@ -1,0 +1,6 @@
+_stage/
+target/
+build/
+build-*/
+__pycache__/
+.strata-test.env

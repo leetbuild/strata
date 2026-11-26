@@ -1,0 +1,26 @@
+name: CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    container: archlinux:latest
+    steps:
+      - name: Packages
+        run: |
+          pacman -Syu --noconfirm --needed base-devel git cmake ninja rust corrosion \
+            qt6-base qt6-multimedia fuse3 7zip zip python sudo
+          useradd -m ci
+      - uses: actions/checkout@v5
+      - name: Rust tests, build, window tests (as a normal user; FUSE mount tests skip without /dev/fuse)
+        run: |
+          chown -R ci:ci "$GITHUB_WORKSPACE"
+          sudo -u ci env HOME=/home/ci bash -c '
+            set -euo pipefail
+            cargo test --workspace --locked
+            tools/build.sh
+            QT_QPA_PLATFORM=offscreen tools/shell-drive.sh
+          '

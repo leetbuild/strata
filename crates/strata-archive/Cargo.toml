@@ -1,0 +1,16 @@
+[package]
+name = "strata-archive"
+description = "Strata: BSA/BA2 reading and packing, 7z/zip/rar extraction"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+publish = false
+
+[dependencies]
+flate2.workspace = true
+lz4_flex.workspace = true
+tempfile.workspace = true
+thiserror.workspace = true
+
+[lints]
+workspace = true

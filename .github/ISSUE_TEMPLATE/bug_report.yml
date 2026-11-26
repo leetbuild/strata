@@ -1,0 +1,37 @@
+name: Bug report
+description: Something doesn't work as it should
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you did, what you expected, what happened instead.
+    validations:
+      required: true
+  - type: textarea
+    id: info
+    attributes:
+      label: strata info
+      description: The output of `strata info -i <instance folder>`.
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: log
+    attributes:
+      label: Log
+      description: The lines of the window's log (bottom pane) around the problem, or the terminal output.
+      render: text
+  - type: input
+    id: version
+    attributes:
+      label: Strata version
+      description: "`strata --version`, or the commit you built"
+    validations:
+      required: true
+  - type: input
+    id: system
+    attributes:
+      label: Distribution, desktop, Proton
+      placeholder: Arch, KDE Plasma (Wayland), GE-Proton10-14

@@ -1,0 +1,1028 @@
+CRASH TIME: 2026-11-25 19:39:28
+Skyrim SSE v1.5.97
+CrashLoggerSSE v1-25-0-0 Aug 21 2026 09:19:20
+
+Unhandled exception "EXCEPTION_ACCESS_VIOLATION" at 0x6FFFEA4DCF11 d3d12core.dll+02BCF11	mov eax, [0x0000000000001068]
+Exception Flags: 0x00000000 (Continuable)
+Number of Parameters: 2
+Exception Thread ID: 400
+Access Violation: Tried to read memory at 0x000000001068
+ACCESS VIOLATION ANALYSIS:
+	Instruction: mov eax, [0x0000000000001068]
+	Memory Operand: [base=none, index=none, scale=0, disp=+0x1068]
+
+POSSIBLE RELEVANT OBJECTS:
+	RSP+788: (ffxProvider_MLFrameGeneration*)
+	RSP+AB8: (FrameInterpolationSwapChainDX12Stable*)
+
+PROCESS INFO:
+	Process ID: 396
+	Crash Thread ID: 400
+	Process Uptime: 00:00:35 (35298ms)
+	Working Directory: Z:\home\user\Games\Skyrim SE\Game Root
+	Command Line: "Z:\home\user\Games\Skyrim SE\Game Root\\SkyrimSE.exe"
+	Executable MD5: 00000000000000000000000000000000
+	Executable Size: 34769792 bytes
+	Executable Modified: 2026-09-15 19:37:42
+	Elevated: No
+
+THREAD CONTEXT (HEURISTIC):
+	Thread Priority: 0
+	Likely Role: Unknown (main or worker thread)
+
+SYSTEM SPECS:
+	OS: Microsoft Windows 11 Pro v10.0.22000
+	CPU: GenuineIntel Example CPU
+	CPU Cores: 8 logical, 4 physical, 1 packages
+	GPU #1: Example GPU
+	PHYSICAL MEMORY: 8.00 GB/16.00 GB
+	VIRTUAL MEMORY: 4.04 GB/131072.00 GB
+	PROCESS MEMORY: Working Set: 4254.48 MB, Private: 0.00 MB, Peak: 4285.04 MB
+	PAGE FAULTS: 0 (Peak: 4493185024)
+	GPU MEMORY: 4.00/8.00 GB
+
+CALL STACK ([P]robable / [S]tack scan):
+	[ 0][P] 0x6FFFEA4DCF11                           d3d12core.dll+02BCF11
+	[ 1][P] 0x6FFFEC22610F amd_fidelityfx_framegeneration_dx12.dll+000610F
+	[ 2][P] 0x6FFFEC226A9E amd_fidelityfx_framegeneration_dx12.dll+0006A9E
+	[ 3][P] 0x6FFFEC3182FA amd_fidelityfx_framegeneration_dx12.dll+00F82FA
+	[ 4][P] 0x6FFFEC316363 amd_fidelityfx_framegeneration_dx12.dll+00F6363
+	[ 5][P] 0x6FFFEC229C26 amd_fidelityfx_framegeneration_dx12.dll+0009C26
+	[ 6][P] 0x6FFFEC229DC8 amd_fidelityfx_framegeneration_dx12.dll+0009DC8
+	[ 7][P] 0x6FFFEC22C093 amd_fidelityfx_framegeneration_dx12.dll+000C093
+	[ 8][P] 0x6FFFF71DA44A                    CommunityShaders.dll+0AAA44A	test eax, eax |  D:\a\open-shaders\open-shaders\src\Features\Upscaling\DX12SwapChain.cpp:264 void DX12SwapChain::RecreateWrappedResources(DXGI_SWAP_CHAIN_DESC1 const &) [?RecreateWrappedResources@DX12SwapChain@@QEAAXAEBUDXGI_SWAP_CHAIN_DESC1@@@Z] | params: syncInterval: uint32_t, flags: uint32_t
+	[ 9][P] 0x6FFFF6F9EB69                    CommunityShaders.dll+086EB69	lea r11, [rsp+0xA0] |  D:\a\open-shaders\open-shaders\src\Features\HDRDisplay.cpp:1137 long HDRDisplay::RunPresentChainWithHDR(IDXGISwapChain *,unsigned int,unsigned int,bool,bool,std::function<long (IDXGISwapChain *,unsigned int,unsigned int)> const &) [?RunPresentChainWithHDR@HDRDisplay@@AEAAJPEAUIDXGISwapChain@@II_N1AEBV?$function@$$A6AJPEAUIDXGISwapChain@@II@Z@std@@@Z] | params: swapChain: IDXGISwapChain*, syncInterval: uint32_t, flags: uint32_t, hdrReady: bool, frameGenActive: bool, presentChain: std::function<long __cdecl(IDXGISwapChain *,unsigned int,unsigned int)>*
+	[10][P] 0x6FFFF6F9E847                    CommunityShaders.dll+086E847	mov rbx, [rsp+0xF8] |  D:\a\open-shaders\open-shaders\src\Features\HDRDisplay.cpp:1156 long HDRDisplay::HandleSwapChainPresent(IDXGISwapChain *,unsigned int,unsigned int,std::function<long (IDXGISwapChain *,unsigned int,unsigned int)> const &) [?HandleSwapChainPresent@HDRDisplay@@QEAAJPEAUIDXGISwapChain@@IIAEBV?$function@$$A6AJPEAUIDXGISwapChain@@II@Z@std@@@Z] | params: swapChain: IDXGISwapChain*, syncInterval: uint32_t, flags: uint32_t, presentChain: std::function<long __cdecl(IDXGISwapChain *,unsigned int,unsigned int)>*
+	[11][P] 0x6FFFF6B77BCF                    CommunityShaders.dll+0447BCF	mov ebx, eax |  D:\a\open-shaders\open-shaders\src\Hooks.cpp:497 static long IDXGISwapChain_Present::thunk(IDXGISwapChain *,unsigned int,unsigned int) [?thunk@IDXGISwapChain_Present@@SAJPEAUIDXGISwapChain@@II@Z] | params: This: IDXGISwapChain*, SyncInterval: uint32_t, Flags: uint32_t
+	[12][P] 0x6FFFF00074D7                    SSEDisplayTweaks.dll+00274D7
+	[13][P] 0x6FFFF9480619                                        
+	[14][P] 0x000000000001                                        
+	[15][P] 0x00001F909D00                                        
+	[16][P] 0x000142F27BE0                            SkyrimSE.exe+2F27BE0 -> 517081+0x40	add [rax], al
+	[17][P] 0x0001405B15BB                            SkyrimSE.exe+05B15BB -> 35556+0x59B	lea rcx, [0x0000000143028490]
+	[18][P] 0x0001405B35C7                            SkyrimSE.exe+05B35C7 -> 35565+0x5D7	test dil, dil
+	[19][P] 0x6FFFF4E9318E                            hdtsmp64.dll+004318E	mov edx, 0x10 |  D:\a\hdtSMP64\hdtSMP64\src\Hooks.cpp:213 static void Hooks::MainHooks::Update(RE::Main * const) [?Update@MainHooks@Hooks@@SAXQEAVMain@RE@@@Z] | params: a_this: const RE::Main*
+	[20][P] 0x0001405AF4F4                            SkyrimSE.exe+05AF4F4 -> 35551+0x124	test bl, bl
+	[21][P] 0x0001405ACC05                            SkyrimSE.exe+05ACC05 -> 35545+0x35	call 0x00000000C151002A
+	[22][P] 0x00014134B17A                            SkyrimSE.exe+134B17A -> 102193+0x11E	mov ebx, eax
+	[23][P] 0x6FFFFFEC4C0D                            kernel32.dll+0014C0D
+	[24][P] 0x6FFFFFF3FBAF                               ntdll.dll+000FBAF
+	[25][S] 0x6FFFEA513900                           d3d12core.dll+02F3900
+	[26][S] 0x6FFFEEED5E69                          winevulkan.dll+0005E69
+	[27][S] 0x6FFFEA4E916E                           d3d12core.dll+02C916E
+	[28][S] 0x6FFFEEED79BC                          winevulkan.dll+00079BC
+	[29][S] 0x6FFFEEED5E2D                          winevulkan.dll+0005E2D
+	[30][S] 0x6FFFEA4E9770                           d3d12core.dll+02C9770
+	[31][S] 0x6FFFFFAF1400                              msvcrt.dll+0011400
+	[32][S] 0x6FFFEEED6C9D                          winevulkan.dll+0006C9D
+	[33][S] 0x6FFFFFB25ADA                              msvcrt.dll+0045ADA
+	[34][S] 0x6FFFEA4E903F                           d3d12core.dll+02C903F
+	[35][S] 0x6FFFEA4E1A02                           d3d12core.dll+02C1A02
+	[36][S] 0x6FFFEA512D26                           d3d12core.dll+02F2D26
+	[37][S] 0x6FFFEEED6049                          winevulkan.dll+0006049
+	[38][S] 0x6FFFEA4E1B46                           d3d12core.dll+02C1B46
+	[39][S] 0x6FFFEA4D4B47                           d3d12core.dll+02B4B47
+	[40][S] 0x6FFFEA4DAAA6                           d3d12core.dll+02BAAA6
+	[41][S] 0x6FFFEA4F6FB0                           d3d12core.dll+02D6FB0
+	[42][S] 0x6FFFEC2221B2 amd_fidelityfx_framegeneration_dx12.dll+00021B2
+	[43][S] 0x6FFFFFA55317                            ucrtbase.dll+0085317
+	[44][S] 0x6FFFEC3134AF amd_fidelityfx_framegeneration_dx12.dll+00F34AF
+	[45][S] 0x6FFFEA566C3C                           d3d12core.dll+0346C3C
+	[46][S] 0x6FFFEC226B47 amd_fidelityfx_framegeneration_dx12.dll+0006B47
+	[47][S] 0x6FFFFFF4A52C                               ntdll.dll+001A52C
+	[48][S] 0x6FFFFFA17250                            ucrtbase.dll+0047250
+	[49][S] 0x6FFFFFF4ACA1                               ntdll.dll+001ACA1
+	[50][S] 0x6FFFEEED549E                          winevulkan.dll+000549E
+	[51][S] 0x6FFFEA4E77ED                           d3d12core.dll+02C77ED
+	[52][S] 0x6FFFEA4EE6FD                           d3d12core.dll+02CE6FD
+	[53][S] 0x6FFFEA4EE0C2                           d3d12core.dll+02CE0C2
+	[54][S] 0x6FFFEC22A493 amd_fidelityfx_framegeneration_dx12.dll+000A493
+	[55][S] 0x6FFFF73376EB                    CommunityShaders.dll+0C076EB	jmp 0x00006FFFF73372B3 |  D:\a\open-shaders\open-shaders\src\Menu\OverlayRenderer.cpp:167 static void OverlayRenderer::RenderOverlay(Menu &,std::function<void (void)> const &,std::function<void (void)> const &,std::function<char const * (std::vector<InputCombo,std::allocator<InputCombo> >)> const &,float &,float) [?RenderOverlay@OverlayRenderer@@SAXAEAVMenu@@AEBV?$function@$$A6AXXZ@std@@1AEBV?$function@$$A6APEBDV?$vector@UInputCombo@@V?$allocator@UInputCombo@@@std@@@std@@@Z@4@AEAMM@Z] | params: menu: Menu*, processInputEventQueue: std::function<void __cdecl(void)>*, drawSettings: std::function<void __cdecl(void)>*, keyIdToString: std::function<char const * __cdecl(std::vector<InputCombo,std::allocator<InputCombo> >)>*, cachedFontSize: float*, currentFontSize: float
+	[56][S] 0x6FFFFBF98885                               d3d11.dll+0108885
+	[57][S] 0x6FFFF6E75B7E                    CommunityShaders.dll+0745B7E	mov r9, [rax+rbx*1+0xE8] |  D:\a\open-shaders\open-shaders\src\EngineFixes\SunShadowMaskFix.cpp:25 static void SunShadowMaskFix::Update(void) [?Update@SunShadowMaskFix@@SAXXZ]
+	[58][S] 0x6FFFF6C63A89                    CommunityShaders.dll+0533A89	test rax, rax |  RE::Setting * RE::GetINISetting(char const *) [?GetINISetting@RE@@YAPEAVSetting@1@PEBD@Z]
+	[59][S] 0x6FFFF9B0F9F6                   SKSEMenuFramework.dll+00BF9F6	mov rdi, [rbp-0x20] |  E:\SKSE\SKSE-Menu-Framework-3\src\Event.cpp:35 void Event::DispatchEvent(Event::EventType) [?DispatchEvent@Event@@YAXW4EventType@1@@Z] | params: type: Event::EventType
+	[60][S] 0x6FFFFFF3EBC4                               ntdll.dll+000EBC4
+	[61][S] 0x6FFFFFF5F197                               ntdll.dll+002F197
+	[62][S] 0x000140C080A8                            SkyrimSE.exe+0C080A8 -> 67013+0x18	mov rax, [rsp+0x30]
+	[63][S] 0x6FFFFFC53000                          kernelbase.dll+0063000
+	[64][S] 0x0001412BD5A9                            SkyrimSE.exe+12BD5A9 -> 99737+0x19	mov eax, [0x000000014302C8DC]
+	[65][S] 0x6FFFF4FB81BE                            hdtsmp64.dll+01681BE	lfence |  RE::BSSpinLockGuard::~BSSpinLockGuard(void) [??1BSSpinLockGuard@RE@@QEAA@XZ]
+	[66][S] 0x6FFFF4E927D0                            hdtsmp64.dll+00427D0	mov rbx, [rsp+0x80] |  D:\a\hdtSMP64\hdtSMP64\extern\CommonLibSSE\include\RE\B\BSTEvent.h:164 void RE::BSTEventSource<Events::ArmorAttachEvent>::SendEvent(Events::ArmorAttachEvent const *) [?SendEvent@?$BSTEventSource@UArmorAttachEvent@Events@@@RE@@QEAAXPEBUArmorAttachEvent@Events@@@Z] | params: a_event: Events::SkinAllHeadGeometryEvent*
+	[67][S] 0x6FFFFF5B1B35                              USER32.dll+0041B35
+	[68][S] 0x0001405AF3B7                            SkyrimSE.exe+05AF3B7 -> 35550+0x287	add rsp, 0x78
+	[69][S] 0x00014134B231                            SkyrimSE.exe+134B231 -> 102197+0x9	add rsp, 0x28
+	[70][S] 0x0001436DB310                            SkyrimSE.exe+36DB310 -> 810147+0xE7AE0	call 0x00000001436DB315
+
+REGISTERS:
+	RAX 0x6FFFEA598240     (void* -> d3d12core.dll+0378240	outsb)
+	RCX 0x11E9852C0        (void*)
+	RDX 0x0                (size_t) [0]
+	RBX 0x11E9852C0        (void*)
+	RSP 0x11E5D0           (void*)
+	RBP 0x11E650           (void*)
+	RSI 0x0                (size_t) [0]
+	RDI 0x0                (size_t) [0]
+	R8  0x5000009E0        (size_t) [21474839008]
+	R9  0x0                (size_t) [0]
+	R10 0x77BD9F20         (void*)
+	R11 0x1                (size_t) [1]
+	R12 0x789EF148         (void*)
+	R13 0x11E9852C0        (void*)
+	R14 0x78874608         (void*)
+	R15 0x0                (size_t) [0]
+
+STACK:
+	[RSP+0   ] 0x74600080         (void*)
+	[RSP+8   ] 0x11E910           (void*)
+	[RSP+10  ] 0x11E9D8           (void*)
+	[RSP+18  ] 0x9                (size_t) [9]
+	[RSP+20  ] 0x11E640           (void*)
+	[RSP+28  ] 0x6FFFEA513900     (void* -> d3d12core.dll+02F3900	mov rax, [rbp+0x88])
+	[RSP+30  ] 0xBBAD2150         (void*)
+	[RSP+38  ] 0x1                (size_t) [1]
+	[RSP+40  ] 0x1                (size_t) [1]
+	[RSP+48  ] 0x11E640           (void*)
+	[RSP+50  ] 0x0                (size_t) [0]
+	[RSP+58  ] 0x74063510         (void*)
+	[RSP+60  ] 0x9                (size_t) [9]
+	[RSP+68  ] 0x2C0000           (void*)
+	[RSP+70  ] 0xC0               (size_t) [192]
+	[RSP+78  ] 0x6FFFEEED5E69     (void* -> winevulkan.dll+0005E69	nop)
+	[RSP+80  ] 0x0                (size_t) [0]
+	[RSP+88  ] 0x76617210         (void*)
+	[RSP+90  ] 0xC8000            (void*)
+	[RSP+98  ] 0x0                (size_t) [0]
+	[RSP+A0  ] 0x2161CD90         (void*)
+	[RSP+A8  ] 0x6FFF00000002     (size_t) [123141007343618]
+	[RSP+B0  ] 0x11E6E0           (void*)
+	[RSP+B8  ] 0x74063508         (void*)
+	[RSP+C0  ] 0x11E720           (void*)
+	[RSP+C8  ] 0x6FFFEA4E916E     (void* -> d3d12core.dll+02C916E	mov byte ptr [rbx+0x21F0], 0x00)
+	[RSP+D0  ] 0x0                (size_t) [0]
+	[RSP+D8  ] 0xAC3              (size_t) [2755]
+	[RSP+E0  ] 0x0                (size_t) [0]
+	[RSP+E8  ] 0x6FFF00000000     (size_t) [123141007343616]
+	[RSP+F0  ] 0x0                (size_t) [0]
+	[RSP+F8  ] 0x11E820000        (void*)
+	[RSP+100 ] 0x11E740           (void*)
+	[RSP+108 ] 0x6FFFEEED79BC     (void* -> winevulkan.dll+00079BC	nop)
+	[RSP+110 ] 0x3B9F9C6B         (void*)
+	[RSP+118 ] 0x6FFFEEED5E2D     (void* -> winevulkan.dll+0005E2D	nop)
+	[RSP+120 ] 0xFFFF800000E00000 (size_t) [uint: 18446603336235876352 int: -140737473675264]
+	[RSP+128 ] 0x11E986A58        (void*)
+	[RSP+130 ] 0x2161CD90         (void*)
+	[RSP+138 ] 0x5555583822D0     (void*)
+	[RSP+140 ] 0x800000020        (size_t) [34359738400]
+	[RSP+148 ] 0x4                (size_t) [4]
+	[RSP+150 ] 0x11E7A0           (char*) "K"
+	[RSP+158 ] 0x0                (size_t) [0]
+	[RSP+160 ] 0x11E7C0           (void*)
+	[RSP+168 ] 0x6FFFEA4E9770     (void* -> d3d12core.dll+02C9770	and dword ptr [rbx+0x10], 0xFFFFFFFD)
+	[RSP+170 ] 0x11E9852C0        (void*)
+	[RSP+178 ] 0x5E               (size_t) [94]
+	[RSP+180 ] 0x1                (size_t) [1]
+	[RSP+188 ] 0x5555583822D0     (void*)
+	[RSP+190 ] 0x4                (size_t) [4]
+	[RSP+198 ] 0x11E7A0           (char*) "K"
+	[RSP+1A0 ] 0x11E9874B8        (void*)
+	[RSP+1A8 ] 0x1002             (size_t) [4098]
+	[RSP+1B0 ] 0x74600080         (void*)
+	[RSP+1B8 ] 0x6FFFFFAF1400     (void* -> msvcrt.dll+0011400	push rbp)
+	[RSP+1C0 ] 0x20008D0130       (size_t) [137448194352]
+	[RSP+1C8 ] 0x5555583822D0     (void*)
+	[RSP+1D0 ] 0x490000004B       (size_t) [313532612683]
+	[RSP+1D8 ] 0x6FFFEEED79BC     (void* -> winevulkan.dll+00079BC	nop)
+	[RSP+1E0 ] 0x11E828           (void*)
+	[RSP+1E8 ] 0x6FFFEEED6C9D     (void* -> winevulkan.dll+0006C9D	nop)
+	[RSP+1F0 ] 0xFFFF800000380000 (size_t) [uint: 18446603336224866304 int: -140737484685312]
+	[RSP+1F8 ] 0x420020           (void*)
+	[RSP+200 ] 0x2161CD00         (void*)
+	[RSP+208 ] 0x555558310A20     (void*)
+	[RSP+210 ] 0x2161CD00         (void*)
+	[RSP+218 ] 0xDB0              (size_t) [3504]
+	[RSP+220 ] 0x0                (size_t) [0]
+	[RSP+228 ] 0x1002             (size_t) [4098]
+	[RSP+230 ] 0x70               (size_t) [112]
+	[RSP+238 ] 0x1F               (size_t) [31]
+	[RSP+240 ] 0x100000000        (void*)
+	[RSP+248 ] 0x100200000001     (size_t) [17600775979009]
+	[RSP+250 ] 0x11EA6F730        (void*)
+	[RSP+258 ] 0x11EA6F710        (void*)
+	[RSP+260 ] 0x0                (size_t) [0]
+	[RSP+268 ] 0x5E               (size_t) [94]
+	[RSP+270 ] 0x36               (size_t) [54]
+	[RSP+278 ] 0x78860040         (void*)
+	[RSP+280 ] 0x6FFFEC32EA90     (char*) "F"
+	[RSP+288 ] 0xC74928F0         (void*)
+	[RSP+290 ] 0x36               (size_t) [54]
+	[RSP+298 ] 0xC74928F0         (void*)
+	[RSP+2A0 ] 0x11E8A0           (void*)
+	[RSP+2A8 ] 0x6FFFFFB25ADA     (void* -> msvcrt.dll+0045ADA	mov r12, rax)
+	[RSP+2B0 ] 0x74600080         (void*)
+	[RSP+2B8 ] 0x11E910           (void*)
+	[RSP+2C0 ] 0x74600080         (void*)
+	[RSP+2C8 ] 0x11E910           (void*)
+	[RSP+2D0 ] 0x6FFFEA5DC010     (void* -> d3d12core.dll+03BC010	fcomp [rdi-0x36])
+	[RSP+2D8 ] 0x1                (size_t) [1]
+	[RSP+2E0 ] 0x1                (size_t) [1]
+	[RSP+2E8 ] 0x74600080         (void*)
+	[RSP+2F0 ] 0x11E9852C0        (void*)
+	[RSP+2F8 ] 0x8                (size_t) [8]
+	[RSP+300 ] 0x78873A28         (void*)
+	[RSP+308 ] 0x0                (size_t) [0]
+	[RSP+310 ] 0x11E9B0           (void*)
+	[RSP+318 ] 0x6FFFEA4E903F     (void* -> d3d12core.dll+02C903F	mov eax, 0x01)
+	[RSP+320 ] 0x11E9A0           (void*)
+	[RSP+328 ] 0x6FFFEA4E1A02     (void* -> d3d12core.dll+02C1A02	nop)
+	[RSP+330 ] 0xC7492680         (void*)
+	[RSP+338 ] 0x0                (size_t) [0]
+	[RSP+340 ] 0x11E950           (void*)
+	[RSP+348 ] 0x6FFFEA512D26     (void* -> d3d12core.dll+02F2D26	mov eax, r13d)
+	[RSP+350 ] 0xC8000            (void*)
+	[RSP+358 ] 0x6FFFEEED6049     (void* -> winevulkan.dll+0006049	nop)
+	[RSP+360 ] 0x600              (size_t) [1536]
+	[RSP+368 ] 0x78860040         (void*)
+	[RSP+370 ] 0x78927848         (void*)
+	[RSP+378 ] 0x0                (size_t) [0]
+	[RSP+380 ] 0x2161CD90         (void*)
+	[RSP+388 ] 0x6FFF00000001     (size_t) [123141007343617]
+	[RSP+390 ] 0x5555583827D0     (void*)
+	[RSP+398 ] 0x0                (size_t) [0]
+	[RSP+3A0 ] 0x11E9B0           (void*)
+	[RSP+3A8 ] 0x6FFFEEED6C9D     (void* -> winevulkan.dll+0006C9D	nop)
+	[RSP+3B0 ] 0x6FFFEA4E1B46     (void* -> d3d12core.dll+02C1B46	sub rsp, rax)
+	[RSP+3B8 ] 0x1                (size_t) [1]
+	[RSP+3C0 ] 0x1                (size_t) [1]
+	[RSP+3C8 ] 0x74600080         (void*)
+	[RSP+3D0 ] 0x2161CD90         (void*)
+	[RSP+3D8 ] 0x100000008        (void*)
+	[RSP+3E0 ] 0x1                (size_t) [1]
+	[RSP+3E8 ] 0x11E9852C0        (void*)
+	[RSP+3F0 ] 0x11EA40           (void*)
+	[RSP+3F8 ] 0x6FFFEA4D4B47     (void* -> d3d12core.dll+02B4B47	)
+	[RSP+400 ] 0x788610E0         (void*)
+	[RSP+408 ] 0x2                (size_t) [2]
+	[RSP+410 ] 0x100000000        (void*)
+	[RSP+418 ] 0x6FFF00000001     (size_t) [123141007343617]
+	[RSP+420 ] 0x3B9F9490         (void*)
+	[RSP+428 ] 0x0                (size_t) [0]
+	[RSP+430 ] 0x0                (size_t) [0]
+	[RSP+438 ] 0x0                (size_t) [0]
+	[RSP+440 ] 0x0                (size_t) [0]
+	[RSP+448 ] 0x0                (size_t) [0]
+	[RSP+450 ] 0xFFFF800000340000 (size_t) [uint: 18446603336224604160 int: -140737484947456]
+	[RSP+458 ] 0xFFFF800000E00000 (size_t) [uint: 18446603336235876352 int: -140737473675264]
+	[RSP+460 ] 0x6FFFEA4DAAA6     (void* -> d3d12core.dll+02BAAA6	sub rsp, rax)
+	[RSP+468 ] 0x78860040         (void*)
+	[RSP+470 ] 0x2                (size_t) [2]
+	[RSP+478 ] 0x0                (size_t) [0]
+	[RSP+480 ] 0x789EF148         (void*)
+	[RSP+488 ] 0x11E9852C0        (void*)
+	[RSP+490 ] 0x78874608         (void*)
+	[RSP+498 ] 0x0                (size_t) [0]
+	[RSP+4A0 ] 0x11EB80           (void*)
+	[RSP+4A8 ] 0x6FFFEC22610F     (void* -> amd_fidelityfx_framegeneration_dx12.dll+000610F	mov rax, [r14+0x88])
+	[RSP+4B0 ] 0x4BE94890         (void*)
+	[RSP+4B8 ] 0x1                (size_t) [1]
+	[RSP+4C0 ] 0x20               (size_t) [32]
+	[RSP+4C8 ] 0x7402C960         (void*)
+	[RSP+4D0 ] 0x0                (size_t) [0]
+	[RSP+4D8 ] 0x6FFFEA4F6FB0     (void* -> d3d12core.dll+02D6FB0	)
+	[RSP+4E0 ] 0x20               (size_t) [32]
+	[RSP+4E8 ] 0x740243C0         (void*)
+	[RSP+4F0 ] 0x1                (size_t) [1]
+	[RSP+4F8 ] 0x0                (size_t) [0]
+	[RSP+500 ] 0x0                (size_t) [0]
+	[RSP+508 ] 0x0                (size_t) [0]
+	[RSP+510 ] 0x0                (size_t) [0]
+	[RSP+518 ] 0x0                (size_t) [0]
+	[RSP+520 ] 0x0                (size_t) [0]
+	[RSP+528 ] 0x0                (size_t) [0]
+	[RSP+530 ] 0xFFFF800119D29700 (size_t) [uint: 18446603340949395200 int: -140732760156416]
+	[RSP+538 ] 0x74030F18         (void*)
+	[RSP+540 ] 0x7402898E         (void*)
+	[RSP+548 ] 0x788747B8         (void*)
+	[RSP+550 ] 0x7FA800000001     (size_t) [140359531233281]
+	[RSP+558 ] 0x2                (size_t) [2]
+	[RSP+560 ] 0x74031C50         (void*)
+	[RSP+568 ] 0x400FFFFFFFF      (size_t) [4402341478399]
+	[RSP+570 ] 0x40               (size_t) [64]
+	[RSP+578 ] 0x0                (size_t) [0]
+	[RSP+580 ] 0x789270C8         (void*)
+	[RSP+588 ] 0xFFFF800119D29700 (size_t) [uint: 18446603340949395200 int: -140732760156416]
+	[RSP+590 ] 0x5000009A0        (size_t) [21474838944]
+	[RSP+598 ] 0x5000009E0        (size_t) [21474839008]
+	[RSP+5A0 ] 0x3AEB23879DB6     (size_t) [64781587815862]
+	[RSP+5A8 ] 0x6FFFEC2221B2     (void* -> amd_fidelityfx_framegeneration_dx12.dll+00021B2	add rsp, 0x40)
+	[RSP+5B0 ] 0x11EC59           (void*)
+	[RSP+5B8 ] 0x1                (size_t) [1]
+	[RSP+5C0 ] 0x1A               (size_t) [26]
+	[RSP+5C8 ] 0x0                (size_t) [0]
+	[RSP+5D0 ] 0x0                (size_t) [0]
+	[RSP+5D8 ] 0x78860040         (void*)
+	[RSP+5E0 ] 0x11E9852C0        (void*)
+	[RSP+5E8 ] 0x78874608         (void*)
+	[RSP+5F0 ] 0x0                (size_t) [0]
+	[RSP+5F8 ] 0x6FFFEC226A9E     (void* -> amd_fidelityfx_framegeneration_dx12.dll+0006A9E	jmp 0x00006FFFEC226ABE)
+	[RSP+600 ] 0x7402C96E         (void*)
+	[RSP+608 ] 0x7FA92E31F040     (void*)
+	[RSP+610 ] 0x400000018        (size_t) [17179869208]
+	[RSP+618 ] 0x1688             (size_t) [5768]
+	[RSP+620 ] 0x100000000        (void*)
+	[RSP+628 ] 0x0                (size_t) [0]
+	[RSP+630 ] 0x0                (size_t) [0]
+	[RSP+638 ] 0x0                (size_t) [0]
+	[RSP+640 ] 0x77AF0040         (void*)
+	[RSP+648 ] 0x6FFFFFA55317     (void* -> ucrtbase.dll+0085317	xor eax, eax)
+	[RSP+650 ] 0x0                (size_t) [0]
+	[RSP+658 ] 0x0                (size_t) [0]
+	[RSP+660 ] 0x3                (size_t) [3]
+	[RSP+668 ] 0x10000            (void*)
+	[RSP+670 ] 0xA00              (size_t) [2560]
+	[RSP+678 ] 0x10001000005A0    (size_t) [281479271679392]
+	[RSP+680 ] 0x100000018        (void*)
+	[RSP+688 ] 0x1                (size_t) [1]
+	[RSP+690 ] 0xB4               (size_t) [180]
+	[RSP+698 ] 0x6FFFEC3134AF     (void* -> amd_fidelityfx_framegeneration_dx12.dll+00F34AF	mov rbx, [rsp+0x60])
+	[RSP+6A0 ] 0x3AEB23879CE6     (size_t) [64781587815654]
+	[RSP+6A8 ] 0x0                (size_t) [0]
+	[RSP+6B0 ] 0x1                (size_t) [1]
+	[RSP+6B8 ] 0x0                (size_t) [0]
+	[RSP+6C0 ] 0x1                (size_t) [1]
+	[RSP+6C8 ] 0xBF               (size_t) [191]
+	[RSP+6D0 ] 0x11EDC0           (void*)
+	[RSP+6D8 ] 0x77AF0040         (void*)
+	[RSP+6E0 ] 0x11F2C0           (void*)
+	[RSP+6E8 ] 0x6FFFEC3182FA     (void* -> amd_fidelityfx_framegeneration_dx12.dll+00F82FA	mov r8, [rbp-0x20])
+	[RSP+6F0 ] 0x11E985200        (void*)
+	[RSP+6F8 ] 0x1                (size_t) [1]
+	[RSP+700 ] 0xBE0              (size_t) [3040]
+	[RSP+708 ] 0xBF0              (size_t) [3056]
+	[RSP+710 ] 0x1                (size_t) [1]
+	[RSP+718 ] 0x0                (size_t) [0]
+	[RSP+720 ] 0x74600080         (void*)
+	[RSP+728 ] 0x11EFD0           (void*)
+	[RSP+730 ] 0x4BE94890         (void*)
+	[RSP+738 ] 0x11EDA0           (char*) "@"
+	[RSP+740 ] 0x11ED00           (void*)
+	[RSP+748 ] 0xFFAF1400         (void*)
+	[RSP+750 ] 0x11EDB0           (void*)
+	[RSP+758 ] 0x6FFFEA566C3C     (void* -> d3d12core.dll+0346C3C	mov rax, [rbp+0x20])
+	[RSP+760 ] 0x77AF0040         (void*)
+	[RSP+768 ] 0x6FFFEA62E5A0     (void* -> d3d12core.dll+040E5A0	add [rax], eax)
+	[RSP+770 ] 0x4                (size_t) [4]
+	[RSP+778 ] 0x3AEB23879CC6     (size_t) [64781587815622]
+	[RSP+780 ] 0x0                (size_t) [0]
+	[RSP+788 ] 0x6FFFEE8537C0     (ffxProvider_MLFrameGeneration*)
+	[RSP+790 ] 0x11EE30           (void*)
+	[RSP+798 ] 0x0                (size_t) [0]
+	[RSP+7A0 ] 0x3AEB23879A76     (size_t) [64781587815030]
+	[RSP+7A8 ] 0x74002240         (void*)
+	[RSP+7B0 ] 0x6                (size_t) [6]
+	[RSP+7B8 ] 0x6FFFEC226B47     (void* -> amd_fidelityfx_framegeneration_dx12.dll+0006B47	add rsp, 0xD8)
+	[RSP+7C0 ] 0x0                (size_t) [0]
+	[RSP+7C8 ] 0x0                (size_t) [0]
+	[RSP+7D0 ] 0x77AF0040         (void*)
+	[RSP+7D8 ] 0x788EED68         (void*)
+	[RSP+7E0 ] 0x11EED8           (void*)
+	[RSP+7E8 ] 0x3AEB00000000     (size_t) [64780991725568]
+	[RSP+7F0 ] 0x3B9D0453         (void*)
+	[RSP+7F8 ] 0x0                (size_t) [0]
+	[RSP+800 ] 0xF18000           (void*)
+	[RSP+808 ] 0x10000            (void*)
+	[RSP+810 ] 0x7AD              (size_t) [1965]
+	[RSP+818 ] 0x1                (size_t) [1]
+	[RSP+820 ] 0x6                (size_t) [6]
+	[RSP+828 ] 0x77AF0040         (void*)
+	[RSP+830 ] 0x1                (size_t) [1]
+	[RSP+838 ] 0x0                (size_t) [0]
+	[RSP+840 ] 0x0                (size_t) [0]
+	[RSP+848 ] 0x78867048         (void*)
+	[RSP+850 ] 0x1E000000355      (size_t) [2061584302933]
+	[RSP+858 ] 0x3C0000006AA      (size_t) [4123168605866]
+	[RSP+860 ] 0x3C0000006AA      (size_t) [4123168605866]
+	[RSP+868 ] 0x5A000000A00      (size_t) [6184752908800]
+	[RSP+870 ] 0x1                (size_t) [1]
+	[RSP+878 ] 0x0                (size_t) [0]
+	[RSP+880 ] 0x438700003F000000 (size_t) [4865857923454074880]
+	[RSP+888 ] 0x0                (size_t) [0]
+	[RSP+890 ] 0x3F8000003F800000 (size_t) [4575657222473777152]
+	[RSP+898 ] 0x0                (size_t) [0]
+	[RSP+8A0 ] 0x3F80000000000000 (size_t) [4575657221408423936]
+	[RSP+8A8 ] 0x3F800000         (void*)
+	[RSP+8B0 ] 0x7401E440         (void*)
+	[RSP+8B8 ] 0x1100000002       (size_t) [73014444034]
+	[RSP+8C0 ] 0x5A000000A00      (size_t) [6184752908800]
+	[RSP+8C8 ] 0x100000001        (void*)
+	[RSP+8D0 ] 0x0                (size_t) [0]
+	[RSP+8D8 ] 0x80               (size_t) [128]
+	[RSP+8E0 ] 0x0                (size_t) [0]
+	[RSP+8E8 ] 0x0                (size_t) [0]
+	[RSP+8F0 ] 0x0                (size_t) [0]
+	[RSP+8F8 ] 0x0                (size_t) [0]
+	[RSP+900 ] 0x0                (size_t) [0]
+	[RSP+908 ] 0x0                (size_t) [0]
+	[RSP+910 ] 0x1                (size_t) [1]
+	[RSP+918 ] 0x11F140           (void*)
+	[RSP+920 ] 0x11EFA0           (void*)
+	[RSP+928 ] 0x6FFFFFF4A52C     (void* -> ntdll.dll+001A52C	mov r12d, [rbp-0x14])
+	[RSP+930 ] 0x100000001        (void*)
+	[RSP+938 ] 0x20               (size_t) [32]
+	[RSP+940 ] 0x8                (size_t) [8]
+	[RSP+948 ] 0x2161CD60         (void*)
+	[RSP+950 ] 0x6FFFFFA17250     (void* -> ucrtbase.dll+0047250	lea rsp, [rsp])
+	[RSP+958 ] 0x4BE94890         (void*)
+	[RSP+960 ] 0x11EFE0           (void*)
+	[RSP+968 ] 0x6FFFFFF4ACA1     (void* -> ntdll.dll+001ACA1	mov r10d, [rbp-0x30])
+	[RSP+970 ] 0x74600080         (void*)
+	[RSP+978 ] 0x6FFFFFF4ACA1     (void* -> ntdll.dll+001ACA1	mov r10d, [rbp-0x30])
+	[RSP+980 ] 0x0                (size_t) [0]
+	[RSP+988 ] 0x0                (size_t) [0]
+	[RSP+990 ] 0x11EFE0           (void*)
+	[RSP+998 ] 0x8                (size_t) [8]
+	[RSP+9A0 ] 0x30               (size_t) [48]
+	[RSP+9A8 ] 0x1F               (size_t) [31]
+	[RSP+9B0 ] 0x0                (size_t) [0]
+	[RSP+9B8 ] 0xE0               (size_t) [224]
+	[RSP+9C0 ] 0x0                (size_t) [0]
+	[RSP+9C8 ] 0x20D29F88         (void*)
+	[RSP+9D0 ] 0x0                (size_t) [0]
+	[RSP+9D8 ] 0x74600080         (void*)
+	[RSP+9E0 ] 0x11F060           (void*)
+	[RSP+9E8 ] 0x6FFFFFF4A52C     (void* -> ntdll.dll+001A52C	mov r12d, [rbp-0x14])
+	[RSP+9F0 ] 0x1                (size_t) [1]
+	[RSP+9F8 ] 0x11F140           (void*)
+	[RSP+A00 ] 0x11F110           (void*)
+	[RSP+A08 ] 0x0                (size_t) [0]
+	[RSP+A10 ] 0x11F010           (void*)
+	[RSP+A18 ] 0x6FFFFFB25ADA     (void* -> msvcrt.dll+0045ADA	mov r12, rax)
+	[RSP+A20 ] 0x11E985308        (void*)
+	[RSP+A28 ] 0x20               (size_t) [32]
+	[RSP+A30 ] 0x8                (size_t) [8]
+	[RSP+A38 ] 0x2161CD60         (void*)
+	[RSP+A40 ] 0x6FFFFFA17250     (void* -> ucrtbase.dll+0047250	lea rsp, [rsp])
+	[RSP+A48 ] 0x4BE94890         (void*)
+	[RSP+A50 ] 0x11F0D0           (char*) "p"
+	[RSP+A58 ] 0x6FFFFFF4ACA1     (void* -> ntdll.dll+001ACA1	mov r10d, [rbp-0x30])
+	[RSP+A60 ] 0x7401EAC0         (void*)
+	[RSP+A68 ] 0x1100000002       (size_t) [73014444034]
+	[RSP+A70 ] 0x5A000000A00      (size_t) [6184752908800]
+	[RSP+A78 ] 0x100000001        (void*)
+	[RSP+A80 ] 0x200000000        (size_t) [8589934592]
+	[RSP+A88 ] 0x2                (size_t) [2]
+	[RSP+A90 ] 0x74600080         (void*)
+	[RSP+A98 ] 0x0                (size_t) [0]
+	[RSP+AA0 ] 0x250000           (void*)
+	[RSP+AA8 ] 0x250000           (void*)
+	[RSP+AB0 ] 0x2161CD90         (void*)
+	[RSP+AB8 ] 0x20D29520         (FrameInterpolationSwapChainDX12Stable*) See RSP+AB8
+	[RSP+AC0 ] 0x11F100           (void*)
+	[RSP+AC8 ] 0x8                (size_t) [8]
+	[RSP+AD0 ] 0x8                (size_t) [8]
+	[RSP+AD8 ] 0x1F               (size_t) [31]
+	[RSP+AE0 ] 0x8C0000           (void*)
+	[RSP+AE8 ] 0xA008C0000        (size_t) [42958848000]
+	[RSP+AF0 ] 0x2161CD90         (void*)
+	[RSP+AF8 ] 0x8                (size_t) [8]
+	[RSP+B00 ] 0x70               (size_t) [112]
+	[RSP+B08 ] 0x11F1D0           (void*)
+	[RSP+B10 ] 0x11E985308        (void*)
+	[RSP+B18 ] 0x2161CD60         (void*)
+	[RSP+B20 ] 0x6FFFFFA17250     (void* -> ucrtbase.dll+0047250	lea rsp, [rsp])
+	[RSP+B28 ] 0x4BE94890         (void*)
+	[RSP+B30 ] 0x0                (size_t) [0]
+	[RSP+B38 ] 0x7401E180         (void*)
+	[RSP+B40 ] 0x11F160           (void*)
+	[RSP+B48 ] 0x6FFFEEED549E     (void* -> winevulkan.dll+000549E	test eax, eax)
+	[RSP+B50 ] 0x74600080         (void*)
+	[RSP+B58 ] 0x11F600           (void*)
+	[RSP+B60 ] 0x3AEB23879BF6     (size_t) [64781587815414]
+	[RSP+B68 ] 0x6FFFEA4E77ED     (void* -> d3d12core.dll+02C77ED	lea rdx, [r12+0x21D8])
+	[RSP+B70 ] 0x0                (size_t) [0]
+	[RSP+B78 ] 0x0                (size_t) [0]
+	[RSP+B80 ] 0x0                (size_t) [0]
+	[RSP+B88 ] 0x0                (size_t) [0]
+	[RSP+B90 ] 0x0                (size_t) [0]
+	[RSP+B98 ] 0x0                (size_t) [0]
+	[RSP+BA0 ] 0x0                (size_t) [0]
+	[RSP+BA8 ] 0x0                (size_t) [0]
+	[RSP+BB0 ] 0x0                (size_t) [0]
+	[RSP+BB8 ] 0x0                (size_t) [0]
+	[RSP+BC0 ] 0x0                (size_t) [0]
+	[RSP+BC8 ] 0x0                (size_t) [0]
+	[RSP+BD0 ] 0x0                (size_t) [0]
+	[RSP+BD8 ] 0x0                (size_t) [0]
+	[RSP+BE0 ] 0x0                (size_t) [0]
+	[RSP+BE8 ] 0x80               (size_t) [128]
+	[RSP+BF0 ] 0x5A000000A00      (size_t) [6184752908800]
+	[RSP+BF8 ] 0x100000001        (void*)
+	[RSP+C00 ] 0x7401E440         (void*)
+	[RSP+C08 ] 0x1100000002       (size_t) [73014444034]
+	[RSP+C10 ] 0x7401E180         (void*)
+	[RSP+C18 ] 0x20D29520         (FrameInterpolationSwapChainDX12Stable*) See RSP+AB8
+	[RSP+C20 ] 0x11F600           (void*)
+	[RSP+C28 ] 0x0                (size_t) [0]
+	[RSP+C30 ] 0x20D29F88         (void*)
+	[RSP+C38 ] 0x20D29F88         (void*)
+	[RSP+C40 ] 0x11F350           (void*)
+	[RSP+C48 ] 0x6FFFEC316363     (void* -> amd_fidelityfx_framegeneration_dx12.dll+00F6363	xor ecx, ecx)
+	[RSP+C50 ] 0x5A000000A00      (size_t) [6184752908800]
+	[RSP+C58 ] 0x100000001        (void*)
+	[RSP+C60 ] 0x200000000        (size_t) [8589934592]
+	[RSP+C68 ] 0x11E9852C0        (void*)
+	[RSP+C70 ] 0x20D29F88         (void*)
+	[RSP+C78 ] 0x6FFFEC229C26     (void* -> amd_fidelityfx_framegeneration_dx12.dll+0009C26	test eax, eax)
+	[RSP+C80 ] 0x11E9852C0        (void*)
+	[RSP+C88 ] 0x0                (size_t) [0]
+	[RSP+C90 ] 0x0                (size_t) [0]
+	[RSP+C98 ] 0x11F350           (void*)
+	[RSP+CA0 ] 0x7401EAC0         (void*)
+	[RSP+CA8 ] 0x1100000002       (size_t) [73014444034]
+	[RSP+CB0 ] 0x5A000000A00      (size_t) [6184752908800]
+	[RSP+CB8 ] 0x100000001        (void*)
+	[RSP+CC0 ] 0x200000000        (size_t) [8589934592]
+	[RSP+CC8 ] 0x2                (size_t) [2]
+	[RSP+CD0 ] 0x6400000002       (size_t) [429496729602]
+	[RSP+CD8 ] 0x100000000        (void*)
+	[RSP+CE0 ] 0x100000001        (void*)
+	[RSP+CE8 ] 0x0                (size_t) [0]
+	[RSP+CF0 ] 0x20003            (size_t) [131075]
+	[RSP+CF8 ] 0x0                (size_t) [0]
+	[RSP+D00 ] 0x11E9852C0        (void*)
+	[RSP+D08 ] 0x7401E440         (void*)
+	[RSP+D10 ] 0x1100000002       (size_t) [73014444034]
+	[RSP+D18 ] 0x5A000000A00      (size_t) [6184752908800]
+	[RSP+D20 ] 0x100000001        (void*)
+	[RSP+D28 ] 0x0                (size_t) [0]
+	[RSP+D30 ] 0x80               (size_t) [128]
+	[RSP+D38 ] 0x7401EAC0         (void*)
+	[RSP+D40 ] 0x1100000002       (size_t) [73014444034]
+	[RSP+D48 ] 0x5A000000A00      (size_t) [6184752908800]
+	[RSP+D50 ] 0x100000001        (void*)
+	[RSP+D58 ] 0x200000000        (size_t) [8589934592]
+	[RSP+D60 ] 0x2                (size_t) [2]
+	[RSP+D68 ] 0x0                (size_t) [0]
+	[RSP+D70 ] 0x0                (size_t) [0]
+	[RSP+D78 ] 0x0                (size_t) [0]
+	[RSP+D80 ] 0x0                (size_t) [0]
+	[RSP+D88 ] 0x0                (size_t) [0]
+	[RSP+D90 ] 0x0                (size_t) [0]
+	[RSP+D98 ] 0x0                (size_t) [0]
+	[RSP+DA0 ] 0x0                (size_t) [0]
+	[RSP+DA8 ] 0x0                (size_t) [0]
+	[RSP+DB0 ] 0x0                (size_t) [0]
+	[RSP+DB8 ] 0x0                (size_t) [0]
+	[RSP+DC0 ] 0x0                (size_t) [0]
+	[RSP+DC8 ] 0x0                (size_t) [0]
+	[RSP+DD0 ] 0x0                (size_t) [0]
+	[RSP+DD8 ] 0x0                (size_t) [0]
+	[RSP+DE0 ] 0x0                (size_t) [0]
+	[RSP+DE8 ] 0x0                (size_t) [0]
+	[RSP+DF0 ] 0x0                (size_t) [0]
+	[RSP+DF8 ] 0x100000001        (void*)
+	[RSP+E00 ] 0x3F00000000000000 (size_t) [4539628424389459968]
+	[RSP+E08 ] 0x43870000         (void*)
+	[RSP+E10 ] 0xA0000000000      (size_t) [10995116277760]
+	[RSP+E18 ] 0x5A0              (size_t) [1440]
+	[RSP+E20 ] 0x636              (size_t) [1590]
+	[RSP+E28 ] 0x6FFFFFF4ACA1     (void* -> ntdll.dll+001ACA1	mov r10d, [rbp-0x30])
+	[RSP+E30 ] 0x0                (size_t) [0]
+	[RSP+E38 ] 0x3AEB23878566     (size_t) [64781587809638]
+	[RSP+E40 ] 0x0                (size_t) [0]
+	[RSP+E48 ] 0x0                (size_t) [0]
+	[RSP+E50 ] 0x0                (size_t) [0]
+	[RSP+E58 ] 0x0                (size_t) [0]
+	[RSP+E60 ] 0x0                (size_t) [0]
+	[RSP+E68 ] 0x0                (size_t) [0]
+	[RSP+E70 ] 0x0                (size_t) [0]
+	[RSP+E78 ] 0x1                (size_t) [1]
+	[RSP+E80 ] 0x0                (size_t) [0]
+	[RSP+E88 ] 0x6FFFF76DCA01     (char*) ":\a\open-shaders\open-shaders\src\Features\Upscaling\DX12SwapChain.cpp"
+	[RSP+E90 ] 0x636              (size_t) [1590]
+	[RSP+E98 ] 0x20D29520         (FrameInterpolationSwapChainDX12Stable*) See RSP+AB8
+	[RSP+EA0 ] 0x11F580           (void*)
+	[RSP+EA8 ] 0x6FFFEC229DC8     (void* -> amd_fidelityfx_framegeneration_dx12.dll+0009DC8	lea rcx, [rbx+0x08])
+	[RSP+EB0 ] 0x11F650           (void*)
+	[RSP+EB8 ] 0x132E230          (void*)
+	[RSP+EC0 ] 0x11F540           (void*)
+	[RSP+EC8 ] 0x0                (size_t) [0]
+	[RSP+ED0 ] 0x11F4D0           (void*)
+	[RSP+ED8 ] 0x6FFFEA4EE6FD     (void* -> d3d12core.dll+02CE6FD	mov rax, [rbx+0x58])
+	[RSP+EE0 ] 0x11F650           (void*)
+	[RSP+EE8 ] 0x1                (size_t) [1]
+	[RSP+EF0 ] 0x0                (size_t) [0]
+	[RSP+EF8 ] 0x2                (size_t) [2]
+	[RSP+F00 ] 0x132E268          (void*)
+	[RSP+F08 ] 0x132E230          (void*)
+	[RSP+F10 ] 0x11F560           (void*)
+	[RSP+F18 ] 0x74063050         (void*)
+	[RSP+F20 ] 0x11F520           (void*)
+	[RSP+F28 ] 0x6FFFEA4EE6FD     (void* -> d3d12core.dll+02CE6FD	mov rax, [rbx+0x58])
+	[RSP+F30 ] 0x0                (size_t) [0]
+	[RSP+F38 ] 0xCE1D1FD0         (void*)
+	[RSP+F40 ] 0x636              (size_t) [1590]
+	[RSP+F48 ] 0x74063050         (void*)
+	[RSP+F50 ] 0x132E230          (void*)
+	[RSP+F58 ] 0x132E268          (void*)
+	[RSP+F60 ] 0x11F5B0           (void*)
+	[RSP+F68 ] 0x6FFFEA4EE0C2     (void* -> d3d12core.dll+02CE0C2	xor eax, eax)
+	[RSP+F70 ] 0x2                (size_t) [2]
+	[RSP+F78 ] 0x11EA73580        (void*)
+	[RSP+F80 ] 0x11EA735E0        (char*) "\"
+	[RSP+F88 ] 0x11EA735B0        (char*) "\"
+	[RSP+F90 ] 0x100000001        (void*)
+	[RSP+F98 ] 0xCE1D1FD0         (void*)
+	[RSP+FA0 ] 0x636              (size_t) [1590]
+	[RSP+FA8 ] 0x2                (size_t) [2]
+	[RSP+FB0 ] 0x0                (size_t) [0]
+	[RSP+FB8 ] 0xD7775E40         (void*)
+	[RSP+FC0 ] 0x6FFFEA4DAAA6     (void* -> d3d12core.dll+02BAAA6	sub rsp, rax)
+	[RSP+FC8 ] 0x20D29588         (void*)
+	[RSP+FD0 ] 0xC74923A0         (void*)
+	[RSP+FD8 ] 0x74063050         (void*)
+	[RSP+FE0 ] 0x20D29588         (void*)
+	[RSP+FE8 ] 0xC74923A0         (void*)
+	[RSP+FF0 ] 0x0                (size_t) [0]
+	[RSP+FF8 ] 0x20D29520         (FrameInterpolationSwapChainDX12Stable*) See RSP+AB8
+
+MODULES:
+	steam_api64.dll                         0x00007AF20000
+	NetScriptFramework.Runtime.dll          0x000100200000
+	NetScriptFramework.SkyrimSE.dll         0x000100590000
+	icudt68.dll                             0x0001043D0000
+	SkyrimSE.exe                            0x000140000000
+	binkw64.dll                             0x000180000000
+	System.ni.dll                           0x064474A80000
+	mscorlib.ni.dll                         0x064478000000
+	winegstreamer.dll                       0x6FFFE97C0000
+	msdmo.dll                               0x6FFFE9850000
+	wmadmod.dll                             0x6FFFE9880000
+	discord-rpc.dll                         0x6FFFE98B0000
+	DSOUND.DLL                              0x6FFFE9960000
+	winepulse.drv                           0x6FFFE99C0000
+	mmdevapi.dll                            0x6FFFE99E0000
+	mfreadwrite.dll                         0x6FFFE9A20000
+	rtworkq.dll                             0x6FFFE9A60000
+	mfplat.dll                              0x6FFFE9A90000
+	XAudio2_7.dll                           0x6FFFE9B00000
+	icuuc68.dll                             0x6FFFE9B60000
+	icuin68.dll                             0x6FFFE9D90000
+	propsys.dll                             0x6FFFEA080000
+	windowscodecs.dll                       0x6FFFEA0C0000
+	d3d12core.dll                           0x6FFFEA220000
+	amd_fidelityfx_upscaler_dx12.dll        0x6FFFEA6A0000
+	amd_fidelityfx_framegeneration_dx12.dll 0x6FFFEC220000
+	sl.reflex.dll                           0x6FFFEE870000
+	icu.dll                                 0x6FFFEE8E0000
+	amdxc64.dll                             0x6FFFEE910000
+	wineopenxr.dll                          0x6FFFEE930000
+	amd_fidelityfx_loader_dx12.dll          0x6FFFEE970000
+	sl.common.dll                           0x6FFFEE990000
+	sl.interposer.dll                       0x6FFFEEA90000
+	sl.reflex.dll                           0x6FFFEEB50000
+	sl.pcl.dll                              0x6FFFEEBC0000
+	sl.pcl.dll                              0x6FFFEEC40000
+	sl.common.dll                           0x6FFFEECB0000
+	cryptnet.dll                            0x6FFFEEDB0000
+	msasn1.dll                              0x6FFFEEDE0000
+	sl.interposer.dll                       0x6FFFEEE10000
+	winevulkan.dll                          0x6FFFEEED0000
+	gameoverlayrenderer64.dll               0x6FFFEEF10000
+	YesImSure.dll                           0x6FFFEF100000
+	w_LeveledListObjectSwapper.dll          0x6FFFEF400000
+	WhoseQuestIsItAnyway.dll                0x6FFFEF520000
+	VendorRespawnFix.dll                    0x6FFFEF810000
+	UnskippableDialogueNG.dll               0x6FFFEF8A0000
+	TWEAK.dll                               0x6FFFEF950000
+	TrueHUD.dll                             0x6FFFEFA30000
+	styyx-difficulty-global.dll             0x6FFFEFB30000
+	StrataProbe.dll                         0x6FFFEFC30000
+	StayAtSystemPageSE.dll                  0x6FFFEFC70000
+	StaggerEffectFix.dll                    0x6FFFEFEB0000
+	SSMT_Fix.dll                            0x6FFFEFF60000
+	SSEDisplayTweaks.dll                    0x6FFFEFFE0000
+	SpellMasteryHeat.dll                    0x6FFFF0090000
+	SoundRecordDistributor.dll              0x6FFFF0250000
+	SkyPatcher.dll                          0x6FFFF0350000
+	SimpleDualSheath.dll                    0x6FFFF0580000
+	ScriptEffectArchetypeCrashFix.dll       0x6FFFF0630000
+	ScrambledBugs.dll                       0x6FFFF06C0000
+	ScaleformTranslationPP.dll              0x6FFFF0730000
+	RoguesGallery.dll                       0x6FFFF0990000
+	RemoveAllItemsFix.dll                   0x6FFFF0BB0000
+	Recipes.dll                             0x6FFFF0C60000
+	po3_Tweaks.dll                          0x6FFFF0E40000
+	po3_SpellPerkItemDistributor.dll        0x6FFFF0F90000
+	po3_PhotoMode.dll                       0x6FFFF1190000
+	po3_PapyrusExtender.dll                 0x6FFFF15B0000
+	po3_KeywordItemDistributor.dll          0x6FFFF18C0000
+	po3_CraftingRecipeDistributor.dll       0x6FFFF1A90000
+	po3_ConsolePlusPlus.dll                 0x6FFFF1BA0000
+	po3_BaseObjectSwapper.dll               0x6FFFF1CA0000
+	po3_AnimObjectSwapper.dll               0x6FFFF1DF0000
+	PluginBrowser.dll                       0x6FFFF1F30000
+	Piggyback.dll                           0x6FFFF21D0000
+	PerkEntryPointExtender.dll              0x6FFFF2290000
+	PapyrusUtil.dll                         0x6FFFF2540000
+	PapyrusTweaks.dll                       0x6FFFF26D0000
+	PapyrusProfiler.dll                     0x6FFFF27E0000
+	PapyrusIniManipulator.dll               0x6FFFF28D0000
+	PAPER.dll                               0x6FFFF2990000
+	PairedAnimationImprovements.dll         0x6FFFF2A20000
+	OutfitDistributor.dll                   0x6FFFF2AD0000
+	OpenAnimationReplacer.dll               0x6FFFF2D00000
+	NPCsNamesDistributor.dll                0x6FFFF3010000
+	NextGenSaving.dll                       0x6FFFF3190000
+	Native_Water_Light_Stabilizer.dll       0x6FFFF3270000
+	NativeEditorIDFix.dll                   0x6FFFF32C0000
+	MusicTypeDistributor.dll                0x6FFFF3330000
+	MumsTheWord.dll                         0x6FFFF3400000
+	MoreInformativeConsole.dll              0x6FFFF36E0000
+	ModelSwapper.dll                        0x6FFFF3850000
+	MediaKeysFix.dll                        0x6FFFF3960000
+	MCMHelper.dll                           0x6FFFF3A10000
+	MaxsuAIProcessFix.dll                   0x6FFFF3B80000
+	MapMarkerFramework.dll                  0x6FFFF3C40000
+	LexiconSKSE.dll                         0x6FFFF3D70000
+	JContainers64.dll                       0x6FFFF4430000
+	ItemPropertyManipulator.dll             0x6FFFF4780000
+	InventoryRefreshFix.dll                 0x6FFFF4A20000
+	InventoryInjector.dll                   0x6FFFF4AD0000
+	IntricateTimescale.dll                  0x6FFFF4B90000
+	HitchHunter.dll                         0x6FFFF4C60000
+	hdtsmp64.dll                            0x6FFFF4E50000
+	HavokSolverCrashFix.dll                 0x6FFFF5280000
+	FormListManipulator.dll                 0x6FFFF5380000
+	fiss.dll                                0x6FFFF5480000
+	FirstPersonFOV.dll                      0x6FFFF54D0000
+	EquipEnchantmentFix.dll                 0x6FFFF5580000
+	EnchantableSpecialItemFix.dll           0x6FFFF5610000
+	DynamicStringDistributor.dll            0x6FFFF5680000
+	DynamicArmorVariants.dll                0x6FFFF5760000
+	DiscordRichPresence.dll                 0x6FFFF5890000
+	DbSkseFunctions.dll                     0x6FFFF5980000
+	CustomSkills.dll                        0x6FFFF5BC0000
+	CurrencySwapper.dll                     0x6FFFF5D10000
+	wevtapi.dll                             0x6FFFF5E20000
+	CrashLogger.dll                         0x6FFFF5E40000
+	ContainerItemDistributor.dll            0x6FFFF61A0000
+	ContainerDistributionFramework.dll      0x6FFFF6260000
+	ConsoleUtilSSE.dll                      0x6FFFF6390000
+	nvapi64.dll                             0x6FFFF6490000
+	VCOMP140.DLL                            0x6FFFF6670000
+	MSVCP140_ATOMIC_WAIT.dll                0x6FFFF66C0000
+	d3d12.dll                               0x6FFFF66F0000
+	CommunityShaders.dll                    0x6FFFF6730000
+	ClassicSprinting.dll                    0x6FFFF8700000
+	CellLocationDistributor.dll             0x6FFFF8760000
+	CCExtender.dll                          0x6FFFF8800000
+	CameraFollows.dll                       0x6FFFF8890000
+	BugFixesSSE.dll                         0x6FFFF8950000
+	BetterJumpingSE.dll                     0x6FFFF89C0000
+	BetterAltTab.dll                        0x6FFFF8A30000
+	BeardMaskFix.dll                        0x6FFFF8AF0000
+	BackportedESLSupport.dll                0x6FFFF8BA0000
+	AutoParallax.dll                        0x6FFFF8C90000
+	AnimationQueueFix.dll                   0x6FFFF8D40000
+	AnimatedStaticReload.dll                0x6FFFF8DF0000
+	AltTabFix.dll                           0x6FFFF8EA0000
+	AHZmoreHUDPlugin.dll                    0x6FFFF8F60000
+	AHZmoreHUDInventory.dll                 0x6FFFF9040000
+	ActorValueGenerator.dll                 0x6FFFF9100000
+	skse64_1_5_97.dll                       0x6FFFF9490000
+	dwmapi.dll                              0x6FFFF95F0000
+	D3DCOMPILER_47.dll                      0x6FFFF9610000
+	SKSEMenuFramework.dll                   0x6FFFF9A50000
+	EngineFixes.dll                         0x6FFFF9E80000
+	amsi.dll                                0x6FFFFA140000
+	wldp.dll                                0x6FFFFA160000
+	Secur32.dll                             0x6FFFFA180000
+	MSWSOCK.dll                             0x6FFFFA1B0000
+	lsteamclient.dll                        0x6FFFFA1D0000
+	steamclient64.dll                       0x6FFFFA420000
+	PSAPI.DLL                               0x6FFFFBE20000
+	skse64_steam_loader.dll                 0x6FFFFBE40000
+	d3d11.dll                               0x6FFFFBE90000
+	d3dx9_42.dll                            0x6FFFFC290000
+	WSOCK32.dll                             0x6FFFFC2C0000
+	VCRUNTIME140_1.dll                      0x6FFFFC2E0000
+	VCRUNTIME140.dll                        0x6FFFFC300000
+	MSVCP140.dll                            0x6FFFFC340000
+	jsproxy.dll                             0x6FFFFC3F0000
+	WINHTTP.dll                             0x6FFFFC420000
+	dxgi.dll                                0x6FFFFC480000
+	netutils.dll                            0x6FFFFC740000
+	NETAPI32.dll                            0x6FFFFC760000
+	mlang.dll                               0x6FFFFC7A0000
+	gdiplus.dll                             0x6FFFFC7E0000
+	CKPE.dll                                0x6FFFFC880000
+	WINHTTP.dll                             0x6FFFFC9C0000
+	XINPUT1_3.dll                           0x6FFFFCA40000
+	X3DAudio1_7.dll                         0x6FFFFCA70000
+	rsaenh.dll                              0x6FFFFCA90000
+	MSIMG32.dll                             0x6FFFFCAE0000
+	CFGMGR32.dll                            0x6FFFFCB40000
+	DINPUT8.dll                             0x6FFFFCB70000
+	xinput1_4.dll                           0x6FFFFCBD0000
+	hid.dll                                 0x6FFFFCC00000
+	msacm32.dll                             0x6FFFFCC20000
+	clr.dll                                 0x6FFFFCDF0000
+	WINMM.dll                               0x6FFFFD8E0000
+	clrjit.dll                              0x6FFFFD9C0000
+	winex11.drv                             0x6FFFFDB80000
+	wintrust.dll                            0x6FFFFDBA0000
+	mpr.dll                                 0x6FFFFDBE0000
+	wininet.dll                             0x6FFFFDC10000
+	urlmon.dll                              0x6FFFFDCB0000
+	SHELL32.dll                             0x6FFFFDD60000
+	imagehlp.dll                            0x6FFFFE710000
+	CRYPT32.dll                             0x6FFFFE740000
+	oleacc.dll                              0x6FFFFE830000
+	comctl32.dll                            0x6FFFFE870000
+	uxtheme.dll                             0x6FFFFEB70000
+	nsi.dll                                 0x6FFFFEC50000
+	dnsapi.dll                              0x6FFFFEC70000
+	iphlpapi.dll                            0x6FFFFECA0000
+	POWRPROF.dll                            0x6FFFFED30000
+	VERSION.dll                             0x6FFFFED50000
+	shcore.dll                              0x6FFFFED70000
+	shlwapi.dll                             0x6FFFFEDA0000
+	mscoreei.dll                            0x6FFFFEE00000
+	dbghelp.dll                             0x6FFFFEEE0000
+	bcrypt.dll                              0x6FFFFEF70000
+	imm32.dll                               0x6FFFFF070000
+	oleaut32.dll                            0x6FFFFF0A0000
+	coml2.dll                               0x6FFFFF190000
+	combase.dll                             0x6FFFFF1C0000
+	ole32.dll                               0x6FFFFF220000
+	mscoree.dll                             0x6FFFFF2F0000
+	ucrtbase_clr0400.dll                    0x6FFFFF370000
+	VCRUNTIME140_CLR0400.dll                0x6FFFFF440000
+	win32u.dll                              0x6FFFFF490000
+	gdi32.dll                               0x6FFFFF4E0000
+	USER32.dll                              0x6FFFFF570000
+	setupapi.dll                            0x6FFFFF860000
+	rpcrt4.dll                              0x6FFFFF8F0000
+	WS2_32.dll                              0x6FFFFF990000
+	ucrtbase.dll                            0x6FFFFF9D0000
+	sechost.dll                             0x6FFFFFAB0000
+	msvcrt.dll                              0x6FFFFFAE0000
+	advapi32.dll                            0x6FFFFFB90000
+	kernelbase.dll                          0x6FFFFFBF0000
+	kernel32.dll                            0x6FFFFFEB0000
+	ntdll.dll                               0x6FFFFFF30000
+
+SKSE PLUGINS:
+	ExamplePlugin001.dll v1.0.0
+	ExamplePlugin002.dll v1.0.0
+	ExamplePlugin003.dll v1.0.0
+	ExamplePlugin004.dll v1.0.0
+	ExamplePlugin005.dll v1.0.0
+	ExamplePlugin006.dll v1.0.0
+	ExamplePlugin007.dll v1.0.0
+	ExamplePlugin008.dll v1.0.0
+	ExamplePlugin009.dll v1.0.0
+	ExamplePlugin010.dll v1.0.0
+	ExamplePlugin011.dll v1.0.0
+	ExamplePlugin012.dll v1.0.0
+	ExamplePlugin013.dll v1.0.0
+	ExamplePlugin014.dll v1.0.0
+	ExamplePlugin015.dll v1.0.0
+	ExamplePlugin016.dll v1.0.0
+	ExamplePlugin017.dll v1.0.0
+	ExamplePlugin018.dll v1.0.0
+	ExamplePlugin019.dll v1.0.0
+	ExamplePlugin020.dll v1.0.0
+	ExamplePlugin021.dll v1.0.0
+	ExamplePlugin022.dll v1.0.0
+	ExamplePlugin023.dll v1.0.0
+	ExamplePlugin024.dll v1.0.0
+	ExamplePlugin025.dll v1.0.0
+	ExamplePlugin026.dll v1.0.0
+	ExamplePlugin027.dll v1.0.0
+	ExamplePlugin028.dll v1.0.0
+	ExamplePlugin029.dll v1.0.0
+	ExamplePlugin030.dll v1.0.0
+	ExamplePlugin031.dll v1.0.0
+	ExamplePlugin032.dll v1.0.0
+	ExamplePlugin033.dll v1.0.0
+	ExamplePlugin034.dll v1.0.0
+	ExamplePlugin035.dll v1.0.0
+	ExamplePlugin036.dll v1.0.0
+	ExamplePlugin037.dll v1.0.0
+	ExamplePlugin038.dll v1.0.0
+	ExamplePlugin039.dll v1.0.0
+	ExamplePlugin040.dll v1.0.0
+	ExamplePlugin041.dll v1.0.0
+	ExamplePlugin042.dll v1.0.0
+	ExamplePlugin043.dll v1.0.0
+	ExamplePlugin044.dll v1.0.0
+	ExamplePlugin045.dll v1.0.0
+	ExamplePlugin046.dll v1.0.0
+	ExamplePlugin047.dll v1.0.0
+	ExamplePlugin048.dll v1.0.0
+	ExamplePlugin049.dll v1.0.0
+	ExamplePlugin050.dll v1.0.0
+	ExamplePlugin051.dll v1.0.0
+	ExamplePlugin052.dll v1.0.0
+	ExamplePlugin053.dll v1.0.0
+	ExamplePlugin054.dll v1.0.0
+	ExamplePlugin055.dll v1.0.0
+	ExamplePlugin056.dll v1.0.0
+	ExamplePlugin057.dll v1.0.0
+	ExamplePlugin058.dll v1.0.0
+	ExamplePlugin059.dll v1.0.0
+	ExamplePlugin060.dll v1.0.0
+	ExamplePlugin061.dll v1.0.0
+	ExamplePlugin062.dll v1.0.0
+	ExamplePlugin063.dll v1.0.0
+	ExamplePlugin064.dll v1.0.0
+	ExamplePlugin065.dll v1.0.0
+	ExamplePlugin066.dll v1.0.0
+	ExamplePlugin067.dll v1.0.0
+	ExamplePlugin068.dll v1.0.0
+	ExamplePlugin069.dll v1.0.0
+	ExamplePlugin070.dll v1.0.0
+	ExamplePlugin071.dll v1.0.0
+	ExamplePlugin072.dll v1.0.0
+	ExamplePlugin073.dll v1.0.0
+	ExamplePlugin074.dll v1.0.0
+	ExamplePlugin075.dll v1.0.0
+	ExamplePlugin076.dll v1.0.0
+	ExamplePlugin077.dll v1.0.0
+	ExamplePlugin078.dll v1.0.0
+	ExamplePlugin079.dll v1.0.0
+	ExamplePlugin080.dll v1.0.0
+	ExamplePlugin081.dll v1.0.0
+	ExamplePlugin082.dll v1.0.0
+	ExamplePlugin083.dll v1.0.0
+	ExamplePlugin084.dll v1.0.0
+	ExamplePlugin085.dll v1.0.0
+	ExamplePlugin086.dll v1.0.0
+	ExamplePlugin087.dll v1.0.0
+	ExamplePlugin088.dll v1.0.0
+	ExamplePlugin089.dll v1.0.0
+	ExamplePlugin090.dll v1.0.0
+	ExamplePlugin091.dll v1.0.0
+	ExamplePlugin092.dll v1.0.0
+	ExamplePlugin093.dll v1.0.0
+	ExamplePlugin094.dll v1.0.0
+	ExamplePlugin095.dll v1.0.0
+	ExamplePlugin096.dll v1.0.0
+	ExamplePlugin097.dll v1.0.0
+	ExamplePlugin098.dll v1.0.0
+
+PLUGINS:
+	Light: 35	Regular: 16	Total: 51
+	[ 0]     Skyrim.esm
+	[ 1]     Update.esm
+	[ 2]     Dawnguard.esm
+	[ 3]     HearthFires.esm
+	[ 4]     Dragonborn.esm
+	[ 5]     Example099.esm
+	[ 6]     Example100.esm
+	[ 7]     Example101.esp
+	[ 8]     Example102.esm
+	[ 9]     Example103.esp
+	[ A]     Example104.esp
+	[ B]     Example105.esp
+	[ C]     Example106.esp
+	[ D]     Example107.esp
+	[ E]     Example108.esp
+	[ F]     Example109.esp
+	[FE:  0] Example110.esl
+	[FE:  1] Example111.esl
+	[FE:  2] Example112.esl
+	[FE:  3] Example113.esl
+	[FE:  4] Example114.esl
+	[FE:  5] Example115.esp
+	[FE:  6] Example116.esl
+	[FE:  7] Example117.esl
+	[FE:  8] Example118.esl
+	[FE:  9] Example119.esp
+	[FE:  A] Example120.esp
+	[FE:  B] Example121.esp
+	[FE:  C] Example122.esp
+	[FE:  D] Example123.esp
+	[FE:  E] Example124.esp
+	[FE:  F] Example125.esp
+	[FE: 10] Example126.esp
+	[FE: 11] Example127.esp
+	[FE: 12] Example128.esp
+	[FE: 13] Example129.esp
+	[FE: 14] Example130.esp
+	[FE: 15] Example131.esp
+	[FE: 16] Example132.esp
+	[FE: 17] Example133.esp
+	[FE: 18] Example134.esp
+	[FE: 19] Example135.esp
+	[FE: 1A] Example136.esp
+	[FE: 1B] Example137.esp
+	[FE: 1C] Example138.esp
+	[FE: 1D] Example139.esp
+	[FE: 1E] Example140.esp
+	[FE: 1F] Example141.esp
+	[FE: 20] Example142.esp
+	[FE: 21] Example143.esp
+	[FE: 22] Example144.esp

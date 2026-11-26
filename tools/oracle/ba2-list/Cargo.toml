@@ -1,0 +1,12 @@
+# The listing half of the BSA check (tools/oracle/check-bsa.sh): the `ba2` crate, the reader
+# Fluorine uses (libs/bsa_ffi). Kept out of the workspace: `ba2` builds DirectXTex (C++).
+[package]
+name = "ba2-list"
+version = "0.1.0"
+edition = "2024"
+publish = false
+
+[dependencies]
+ba2 = "3.0.1"
+
+[workspace]

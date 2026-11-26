@@ -1,0 +1,16 @@
+[package]
+name = "strata-game"
+description = "Strata: The `Game` trait and its implementations (Skyrim SE first)"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+publish = false
+
+[dependencies]
+lz4_flex.workspace = true
+miniz_oxide.workspace = true
+serde.workspace = true
+thiserror.workspace = true
+
+[lints]
+workspace = true

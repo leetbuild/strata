@@ -1,0 +1,41 @@
+[package]
+name = "strata-cli"
+description = "Strata: the command line, and the entry point of the program"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+publish = false
+
+[lib]
+name = "strata_cli"
+
+# Development target without the window: `cargo run -p strata-cli -- <subcommand>`.
+# The installed program is `build/strata` (CMake), which links the shell.
+[[bin]]
+name = "strata-headless"
+path = "src/main.rs"
+
+[dependencies]
+anyhow.workspace = true
+clap.workspace = true
+libc.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+strata-archive.workspace = true
+strata-core.workspace = true
+strata-diag.workspace = true
+strata-game.workspace = true
+strata-ini.workspace = true
+strata-install.workspace = true
+strata-launch.workspace = true
+strata-nexus.workspace = true
+strata-ui.workspace = true
+strata-loot.workspace = true
+strata-vfs.workspace = true
+
+[dev-dependencies]
+strata-nexus = { workspace = true, features = ["test-support"] }
+tempfile.workspace = true
+
+[lints]
+workspace = true

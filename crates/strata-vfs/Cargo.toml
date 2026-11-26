@@ -1,0 +1,29 @@
+[package]
+name = "strata-vfs"
+description = "Strata: The overlay"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+publish = false
+
+[dependencies]
+fuser.workspace = true
+libc.workspace = true
+rayon.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+strata-archive.workspace = true
+strata-game.workspace = true
+
+[features]
+# Test builds only: `crash_point` pauses vfsd at a chosen step (`tree.rs`).
+crash-hooks = []
+
+[dev-dependencies]
+libc.workspace = true
+# the integration tests get the crash hooks
+strata-vfs = { path = ".", features = ["crash-hooks"] }
+tempfile.workspace = true
+
+[lints]
+workspace = true

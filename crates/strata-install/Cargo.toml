@@ -1,0 +1,24 @@
+[package]
+name = "strata-install"
+description = "Strata: Installers (quick, manual model, BAIN, FOMOD, bundle) and the Root sorter"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+publish = false
+
+[dependencies]
+libc.workspace = true
+regex.workspace = true
+roxmltree.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+strata-archive.workspace = true
+strata-core.workspace = true
+strata-ini.workspace = true
+strata-nexus.workspace = true
+strata-vfs.workspace = true
+tempfile.workspace = true
+thiserror.workspace = true
+
+[lints]
+workspace = true

@@ -1,0 +1,18 @@
+[package]
+name = "strata-diag"
+description = "Strata: Diagnostics"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+publish = false
+
+[dependencies]
+strata-core.workspace = true
+strata-ini.workspace = true
+
+[dev-dependencies]
+strata-game.workspace = true
+tempfile.workspace = true
+
+[lints]
+workspace = true

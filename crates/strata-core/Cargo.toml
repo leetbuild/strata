@@ -1,0 +1,19 @@
+[package]
+name = "strata-core"
+description = "Strata: The model"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+publish = false
+
+[dependencies]
+strata-game.workspace = true
+strata-ini.workspace = true
+libc.workspace = true
+thiserror.workspace = true
+
+[dev-dependencies]
+tempfile.workspace = true
+
+[lints]
+workspace = true

@@ -1,0 +1,27 @@
+[package]
+name = "strata-nexus"
+description = "Strata: Nexus API, SSO, the download queue, nxm"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+publish = false
+
+[features]
+# the fake Nexus server and secret-tool for other crates' tests; never in the shipped binary
+test-support = []
+
+[dependencies]
+md5.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+strata-core.workspace = true
+strata-ini.workspace = true
+thiserror.workspace = true
+tungstenite.workspace = true
+ureq.workspace = true
+
+[dev-dependencies]
+tempfile.workspace = true
+
+[lints]
+workspace = true

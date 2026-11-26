@@ -1,0 +1,58 @@
+# Maintainer: leet <leet@1337.build>
+# Strata from git (the latest commit of main). Build: makepkg -si
+pkgname=strata-git
+_pkgname=strata
+pkgver=0.1.0
+pkgrel=1
+pkgdesc="Linux-native mod manager for Bethesda games, compatible with Mod Organizer 2 instances (FUSE overlay, Proton)"
+arch=('x86_64')
+url="https://github.com/leetbuild/strata"
+license=('GPL-3.0-only')
+depends=('qt6-base' 'fuse3' '7zip' 'gcc-libs' 'glibc')
+makedepends=('git' 'cmake' 'ninja' 'rust' 'corrosion')
+optdepends=('steam: Proton and the Steam Linux Runtime that run the games'
+            'libsecret: keep the Nexus API key in the secret service (secret-tool)'
+            'xdg-utils: open folders and links, register the nxm:// handler'
+            'libnotify: errors of nxm:// links opened with no window (notify-send)')
+provides=("$_pkgname")
+conflicts=("$_pkgname" 'strata-bin')
+options=('!lto' '!debug')
+source=("$_pkgname::git+$url.git")
+sha256sums=('SKIP')
+
+pkgver() {
+  cd "$_pkgname"
+  git describe --long --tags --abbrev=7 2>/dev/null | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g' ||
+    printf "0.1.0.r%s.g%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short=7 HEAD)"
+}
+
+prepare() {
+  cd "$_pkgname"
+  export RUSTUP_TOOLCHAIN=stable
+  cargo fetch --locked --target "$(rustc -vV | sed -n 's/host: //p')"
+}
+
+build() {
+  cd "$_pkgname"
+  export RUSTUP_TOOLCHAIN=stable CARGO_NET_OFFLINE=true
+  cmake -S . -B build -G Ninja \
+    -DCMAKE_BUILD_TYPE=Release \
+    -DCMAKE_INSTALL_PREFIX=/usr \
+    -DSTRATA_BUILD_TESTS=OFF
+  cmake --build build
+}
+
+check() {
+  cd "$_pkgname"
+  export RUSTUP_TOOLCHAIN=stable CARGO_NET_OFFLINE=true
+  # the FUSE mount tests need /dev/fuse, which a clean chroot lacks: they say SKIPPED there
+  cargo test --workspace --release --frozen
+}
+
+package() {
+  cd "$_pkgname"
+  DESTDIR="$pkgdir" cmake --install build
+  install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+  install -Dm644 README.md "$pkgdir/usr/share/doc/$pkgname/README.md"
+  install -Dm644 docs/USER-GUIDE.md "$pkgdir/usr/share/doc/$pkgname/USER-GUIDE.md"
+}
