@@ -290,7 +290,7 @@ fn without_an_overwrite_layer_the_tree_is_read_only() {
     assert_eq!(tree.unlink(data, "Skyrim.esm").unwrap_err().raw_os_error(), Some(libc::EROFS));
 }
 
-/// A profile mount (`spec/03-vfs.md`): the prefix's folder underneath, written straight
+/// A profile mount (`docs/DESIGN.md`, "The overlay"): the prefix's folder underneath, written straight
 /// through, with a few files of the profile folder laid over it.
 #[test]
 fn a_profile_mount_shows_the_profiles_files_and_writes_the_rest_through() {

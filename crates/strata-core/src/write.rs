@@ -1,4 +1,4 @@
-//! Writing MO2's files safely (`spec/02-instance-format.md`, "Rules for every file").
+//! Writing MO2's files safely (`docs/DESIGN.md`, "Rules for every file").
 //!
 //! - [`write_if_changed`]: one file, atomically (temp file in the same folder, `fsync`,
 //!   `rename`), and only when the new bytes differ from what is on disk. MO2 does the same

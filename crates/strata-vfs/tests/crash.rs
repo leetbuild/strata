@@ -1,4 +1,4 @@
-//! Crash safety (`spec/03-vfs.md`): vfsd killed with SIGKILL in the middle of a copy-up, a
+//! Crash safety (`docs/DESIGN.md`, "The overlay"): vfsd killed with SIGKILL in the middle of a copy-up, a
 //! rename, a delete or a create. After the next mount nothing is half-done: the overlay
 //! shows the state before the change or the state after it, no temp file shows or stays on
 //! disk, no journal is left, and every whiteout hides something a lower layer has.

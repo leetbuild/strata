@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# The mod list property (spec/07-oracle.md, check 1's companion): after random enable,
+# The mod list property (docs/DESIGN.md, check 1's companion): after random enable,
 # disable and move operations through Strata, MO2's reading rules (tools/oracle/modlist.py,
 # written from Profile::refreshModStatus) give the order and states Strata shows, and MO2's
 # own operations (setModPriority, changeModPriority, shiftModsPriority) give the same.

@@ -163,7 +163,7 @@ impl Proton {
 
     /// The runtime this Proton must run in, found in Steam's libraries. `None` for a Proton
     /// that asks for none. A runtime that is asked for and not installed is an error: another
-    /// runtime is never used in its place (that is how voices went silent under Fluorine).
+    /// runtime is never used in its place (GE-Proton 10 in SLR 4 lacks `libvpx.so.6`: silent voices).
     pub fn runtime(&self, steam: &Steam) -> Result<Option<PathBuf>> {
         let Some(app_id) = self.required_tool else { return Ok(None) };
         match steam.app_dir(app_id) {

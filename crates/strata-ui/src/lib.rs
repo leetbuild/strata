@@ -1,5 +1,5 @@
 //! What the window shows, as plain Rust: the shell (`shell/`, C++) renders these views and
-//! owns no state of its own (`spec/06-ui.md`). Nothing here knows Qt; `strata-ffi` carries
+//! owns no state of its own (`docs/DESIGN.md`, "The shell"). Nothing here knows Qt; `strata-ffi` carries
 //! it across the `cxx` bridge.
 //!
 //! Some of this reads instance files the core does not model yet (a mod's `meta.ini` keys

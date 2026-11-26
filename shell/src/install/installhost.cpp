@@ -210,7 +210,7 @@ QJsonObject InstallDialogs::bundle(const QJsonObject& r)
   QString action = "cancel", pick;
   for (const auto& a : strings(r["archives"])) {
     auto* button = new QPushButton(a, &dialog);
-    // MO2 styles these buttons with a widget sheet; spec/06-ui.md allows the app sheet only
+    // MO2 styles these buttons with a widget sheet; docs/DESIGN.md ("Style") allows the app sheet only
     // (a widget sheet would override the user's theme), so bold and taller instead
     QFont bold = button->font();
     bold.setBold(true);

@@ -110,7 +110,7 @@ pub(crate) enum Command {
         /// Relative to the game folder, any case: Data/SKSE/Plugins/x.dll
         path: String,
     },
-    /// Oracle checks that need Strata's own code (`spec/07-oracle.md`).
+    /// Oracle checks that need Strata's own code (`docs/DESIGN.md`, "Oracle checks").
     #[command(hide = true)]
     Oracle {
         #[arg(value_enum)]

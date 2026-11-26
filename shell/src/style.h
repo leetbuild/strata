@@ -5,10 +5,10 @@
 #include <QString>
 #include <QTimer>
 
-// Finds, applies and hot-reloads the .qss stylesheet (spec/06-ui.md, "Style").
+// Finds, applies and hot-reloads the .qss stylesheet (docs/DESIGN.md, "Style").
 //
-// The sheet is applied to the whole application only (never per widget, which froze
-// Fluorine's list colours). The watcher follows the sheet through edits in place, replace by
+// The sheet is applied to the whole application only (never per widget, which would override
+// it). The watcher follows the sheet through edits in place, replace by
 // rename (what renderers do) and symlinks (desktop themes link its rendered sheets in).
 class Style : public QObject
 {

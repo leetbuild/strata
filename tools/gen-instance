@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generates a synthetic MO2 instance for tests (spec/07-oracle.md, "Synthetic").
+"""Generates a synthetic MO2 instance for tests (docs/DESIGN.md, "Oracle checks").
 
 usage: gen-instance <target folder> [--files N]
 

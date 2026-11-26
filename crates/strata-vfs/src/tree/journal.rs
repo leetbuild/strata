@@ -1,6 +1,6 @@
 //! The overlay's journal: changes that take more than one step on disk (a folder renamed, a
 //! mod's file moved to overwrite and whited out) are written down before the first step and
-//! finished at the next mount when vfsd dies in the middle (`spec/03-vfs.md`, "Crash
+//! finished at the next mount when vfsd dies in the middle (`docs/DESIGN.md`, "Crash
 //! safety"; the idea of Fluorine's `vfs/stagingpromotion.*`, not its code).
 //!
 //! Every step can be done again without harm: a move whose source is gone is taken as done,

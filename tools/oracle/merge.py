@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-"""Reference merged tree for oracle check 2a (spec/07-oracle.md).
+"""Reference merged tree for oracle check 2a (docs/DESIGN.md, "Oracle checks").
 
 A second, independent implementation of the overlay's rules, written from the spec and
 MO2's behaviour, small enough to read in one sitting. It prints what `strata tree --origin`
 prints: one line per file, `path<TAB>origin`, where origin is the mod's name, `<game>` or
 `<overwrite>`. tools/oracle/check-tree.sh compares the two.
 
-Rules (spec/03-vfs.md):
+Rules (docs/DESIGN.md, "The overlay"):
 - Layers, lowest first: the game folder, enabled mods (modlist.txt read bottom to top),
   overwrite. The highest layer that has a path wins. Folders merge.
 - Names compare without regard to case; the first spelling seen (lowest layer) is shown.

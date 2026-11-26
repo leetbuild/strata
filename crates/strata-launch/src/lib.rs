@@ -1,5 +1,5 @@
 //! Running Windows programs: Steam detection, Proton and its Steam Linux Runtime, the
-//! launch command (`spec/04-proton.md`).
+//! launch command (`docs/DESIGN.md`, "Proton and launching").
 //!
 //! The command and environment are built here and handed back as a [`Plan`], so the caller
 //! can log exactly what will run before running it.

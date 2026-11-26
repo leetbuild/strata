@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Reference plugin list for oracle check 4 (spec/07-oracle.md).
+"""Reference plugin list for oracle check 4 (docs/DESIGN.md, "Oracle checks").
 
 A second implementation of MO2 2.5.2's plugin list, written straight from the C++
 (modorganizer/src/pluginlist.cpp: refresh, setLoadOrder, setState, fixPrimaryPlugins,

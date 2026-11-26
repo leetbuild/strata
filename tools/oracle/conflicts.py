@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Reference conflicts for oracle check 3 (spec/07-oracle.md).
+"""Reference conflicts for oracle check 3 (docs/DESIGN.md, "Oracle checks").
 
 A second implementation of MO2's conflict rules, written from MO2's source, not from Strata's.
 It prints what `strata oracle conflicts` prints; tools/oracle/check-conflicts.sh compares them.

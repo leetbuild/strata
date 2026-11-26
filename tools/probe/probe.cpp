@@ -1,4 +1,4 @@
-// StrataProbe: the SKSE plugin behind oracle check 7 (spec/07-oracle.md).
+// StrataProbe: the SKSE plugin behind oracle check 7 (docs/DESIGN.md, "Oracle checks").
 //
 // When the game has loaded its data (SKSE's kDataLoaded message) it writes
 // Data\SKSE\Plugins\strata-probe.json and ends the game. The file says what the game

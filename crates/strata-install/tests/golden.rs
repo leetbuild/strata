@@ -1,4 +1,4 @@
-//! Oracle check 5 (`spec/07-oracle.md`): install golden tests. Each test builds a small
+//! Oracle check 5 (`docs/DESIGN.md`, "Oracle checks"): install golden tests. Each test builds a small
 //! archive with `7z`, installs it through the whole pipeline with scripted answers and
 //! compares the mod folder with the expected tree. Nothing big is committed.
 

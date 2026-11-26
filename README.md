@@ -80,7 +80,8 @@ Keep backups of instances you care about the first time you use Strata on them (
 makes a cheap copy on file systems with reflinks).
 
 ## For developers
-`docs/ARCHITECTURE.md` describes the crates, the Rust/C++ bridge and the data flow; every crate has a
+[`docs/DESIGN.md`](docs/DESIGN.md) holds the rules Strata follows and why (instance files, the overlay,
+Proton, the oracle checks); [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) describes the crates, the Rust/C++ bridge and the data flow; every crate has a
 README. `tools/test.sh` runs everything that needs no game; `tools/e2e.sh` starts the game in a copy of a
 prefix and checks SKSE loaded.
 

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Mod list oracle: MO2's mod list rules, written straight from the MO2 2.5.2 source, and a
-random-operations check against Strata (the modlist property of spec/07-oracle.md).
+random-operations check against Strata (the modlist property of docs/DESIGN.md, "Oracle checks").
 
 usage: modlist.py check <instance> [--profile P] [--steps N] [--seed S] [--strata EXE]
 

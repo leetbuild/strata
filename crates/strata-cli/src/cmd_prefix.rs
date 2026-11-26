@@ -82,7 +82,7 @@ pub(crate) fn prefix(global: &Global, action: &PrefixAction) -> Result<()> {
     let proton = Proton::at(&proton_dir)?;
     let steam = Steam::detect()?;
 
-    // Every run leaves its log in the instance (spec/04-proton.md, rule 8).
+    // Every run leaves its log in the instance (docs/DESIGN.md, Proton rule 8).
     let logs = instance.root.join("logs");
     std::fs::create_dir_all(&logs)?;
     let stamp = SystemTime::now().duration_since(UNIX_EPOCH).map_or(0, |d| d.as_secs());
@@ -182,7 +182,7 @@ pub(crate) fn create_portable(args: &CreatePortable) -> Result<()> {
 /// misbehaves with the graphics pipeline library.
 pub(crate) const ENB_DXVK_CONF: &str = "dxvk.enableGraphicsPipelineLibrary = False\n";
 
-/// `spec/04-proton.md`, rule 6: when the merged game folder has ENB (`d3d11.dll` with
+/// `docs/DESIGN.md`, Proton rule 6: when the merged game folder has ENB (`d3d11.dll` with
 /// `enbseries.ini` or `enblocal.ini` next to the exe) and no `dxvk.conf`, writes one into
 /// overwrite's `Root/`, so it shows next to the game's exe in the overlay and the real folder
 /// stays untouched. A `dxvk.conf` from any layer, or `DXVK_CONFIG_FILE` in the environment,

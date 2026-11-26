@@ -1,4 +1,4 @@
-//! Oracle check 1 (`spec/07-oracle.md`): the format round trip.
+//! Oracle check 1 (`docs/DESIGN.md`, "Oracle checks"): the format round trip.
 //!
 //! For every MO2 file of an instance:
 //! - ini files (`ModOrganizer.ini`, `meta.ini`, `*.meta`, `settings.ini`): parsing and writing

@@ -1,4 +1,4 @@
-//! An MO2 instance: the folder with `ModOrganizer.ini` (`spec/02-instance-format.md`).
+//! An MO2 instance: the folder with `ModOrganizer.ini` (`docs/DESIGN.md`, "Instance files").
 
 use std::path::{Path, PathBuf};
 
@@ -20,7 +20,7 @@ pub struct InstancePaths {
 }
 
 /// The `[fluorine]` keys Strata reads so that an instance set up in Fluorine just works
-/// (`spec/04-proton.md`, rule 1).
+/// (`docs/DESIGN.md`, Proton rule 1).
 #[derive(Debug, Clone, PartialEq, Eq, Default)]
 pub struct ProtonSettings {
     /// The compatdata-style folder that holds `pfx/`.

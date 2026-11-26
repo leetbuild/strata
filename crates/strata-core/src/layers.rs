@@ -29,7 +29,7 @@ pub fn resolve_layers(instance: &Instance, profile: &Profile) -> Result<Vec<Laye
 }
 
 /// A profile mount: a folder inside the prefix shown with some of the profile's files laid
-/// over it (`spec/03-vfs.md`, "Profile files in the prefix are overlaid, not copied").
+/// over it (`docs/DESIGN.md`, "Profile files in the prefix are overlaid, not copied").
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct ProfileMount {
     /// `appdata` or `documents`.

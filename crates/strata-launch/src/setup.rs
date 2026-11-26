@@ -1,4 +1,4 @@
-//! Prefix setup (`spec/04-proton.md`, rule 4): an explicit list of steps that make a prefix
+//! Prefix setup (`docs/DESIGN.md`, Proton rule 4): an explicit list of steps that make a prefix
 //! fit for Skyrim and its tools. Every step checks before it acts, so a second run on a
 //! working prefix changes nothing (it does not even start Wine).
 //!

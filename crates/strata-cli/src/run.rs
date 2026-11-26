@@ -186,7 +186,7 @@ fn refuse_busy_prefix(pfx: &Path, prefix: &Path) -> Result<()> {
 }
 
 /// `<instance>/logs/strata-run-<time>.log`, starting with the exact command and environment
-/// (`spec/04-proton.md`, rule 8).
+/// (`docs/DESIGN.md`, Proton rule 8).
 fn open_run_log(instance: &Instance, profile: &Profile, executable: &Executable, plan: &Plan) -> Result<(File, PathBuf)> {
     let logs = instance.root.join("logs");
     std::fs::create_dir_all(&logs)?;

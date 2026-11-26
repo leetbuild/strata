@@ -1,4 +1,4 @@
-//! Which `.qss` stylesheet the window uses and where it is found (`spec/06-ui.md`, "Style").
+//! Which `.qss` stylesheet the window uses and where it is found (`docs/DESIGN.md`, "Style").
 
 use std::path::{Path, PathBuf};
 
@@ -68,7 +68,7 @@ pub fn data_home() -> Option<PathBuf> {
 }
 
 /// The sheet `name` (`Night Eyes.qss`, or `Night Eyes` without the extension) in the first of
-/// `dirs` that has it. Symlinks are followed (Fluorine refused them, which broke themed setups);
+/// `dirs` that has it. Symlinks are followed (desktop themes link their rendered sheets in);
 /// the path returned is the one found, not the link's target, so `url(...)` in the sheet
 /// resolves next to where it was found, as in MO2.
 pub fn find(name: &str, dirs: &[PathBuf]) -> Option<PathBuf> {

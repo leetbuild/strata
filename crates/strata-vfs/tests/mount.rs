@@ -1,4 +1,4 @@
-//! Oracle check 6 (`spec/07-oracle.md`): the mounted overlay, used through ordinary file calls.
+//! Oracle check 6 (`docs/DESIGN.md`, "Oracle checks"): the mounted overlay, used through ordinary file calls.
 //!
 //! Needs `/dev/fuse` and `fusermount3`. Without them every test passes with a note on stderr.
 

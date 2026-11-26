@@ -17,7 +17,7 @@ file of archives up to 2,000 files; for bigger ones, for 2,000 files spread even
 findFile scans the whole archive on every call). Prints one verdict line;
 exits 1 on a mismatch.
 
-Known bug of the reference, allowed for exactly: Fluorine's bsatk `Archive::extractDirect` writes
+A quirk of the reference, allowed for exactly: Fluorine's bsatk `Archive::extractDirect` writes
 an uncompressed TES4 file, then falls through into the old copy loop and writes `m_FileSize` more
 bytes (the file again, or with an embedded name the bytes after it). So for a file Strata lists as
 uncompressed, bsatk's bytes may be Strata's followed by exactly `stored_size` more bytes; these are

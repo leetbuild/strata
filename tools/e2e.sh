@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Oracle check 7 (spec/07-oracle.md): the game really starts through Strata.
+# Oracle check 7 (docs/DESIGN.md, "Oracle checks"): the game really starts through Strata.
 #
 #   tools/e2e.sh [instance folder]        default: the first instance of STRATA_REAL_INSTANCES
 #

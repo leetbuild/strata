@@ -1,7 +1,7 @@
 //! The merged tree: every layer's files as one folder, and the changes a mounted game makes.
 //!
 //! Nothing here knows FUSE. The tree answers "which real file is this path", and carries out
-//! writes the way `spec/03-vfs.md` wants them: new files and copies of changed files go to the
+//! writes the way `docs/DESIGN.md` ("The overlay") wants them: new files and copies of changed files go to the
 //! overwrite layer, deletions of lower-layer files become whiteouts.
 
 use std::collections::{BTreeMap, HashMap};

@@ -1,4 +1,4 @@
-# The shell: views, delegates, dialogs. It owns no state (spec/06-ui.md).
+# The shell: views, delegates, dialogs. It owns no state (docs/DESIGN.md, "The shell").
 
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)

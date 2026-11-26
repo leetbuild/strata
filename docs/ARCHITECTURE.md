@@ -84,7 +84,7 @@ first and finished by the next mount if vfsd dies in the middle.
 straight through. The main mount sits in place over the Game Root. The game also names the **profile mounts**
 (`strata_core::profile_mounts`): prefix folders overlaid with the profile's files (`plugins.txt`,
 `loadorder.txt`, local inis, `saves/`), each one a mountpoint with its own short layer list and a file filter
-(`spec/03-vfs.md`). Whiteouts live in `<instance>/strata/whiteouts.txt`. A mod list change sends a new list
+(`docs/DESIGN.md`, "The overlay"). Whiteouts live in `<instance>/strata/whiteouts.txt`. A mod list change sends a new list
 over the socket (`refresh`); vfsd swaps the tree between FUSE requests. A profile switch unmounts and mounts
 again (`strata_cli::select_profile`).
 
@@ -101,7 +101,7 @@ Requests are `{"v":1,"cmd":...}` (`strata_vfs::daemon::Request`), replies `{"v":
   kernel is told to forget the files and folder entries that changed. Open files read on.
 - `unmount {force?}`: unmounts everything and the daemon exits; busy mounts are an error unless forced.
 
-It sends no events of its own (the `written` / `error` events of `spec/03-vfs.md` are not built). The daemon
+It sends no events of its own. The daemon
 unmounts on SIGTERM and SIGINT. A mount it left behind when killed is cleaned by the next mount.
 
 ## CLI (`--json` everywhere)
@@ -224,7 +224,7 @@ Other targets of `shell/CMakeLists.txt`: `strata-dialog-shot` (one installer dia
 - `cargo test --workspace`: unit tests per crate (property tests for parsers), integration tests in each crate's
   `tests/` (FUSE tests mount in a temp folder and print `SKIPPED` without `/dev/fuse`), golden installer tests,
   the CLI end to end (`strata-cli/tests/automation.rs`, `nexus_e2e.rs`).
-- Oracle checks (`spec/07-oracle.md`) as `tools/oracle/check-*.sh`, each exiting non-zero on mismatch, with
+- Oracle checks (`docs/DESIGN.md`, "Oracle checks") as `tools/oracle/check-*.sh`, each exiting non-zero on mismatch, with
   Python references beside them (`modlist.py`, `conflicts.py`, `plugins.py`, `bsa_reference.py`, ...).
 - The shell: `tools/shell-test.sh` (window pictures), `tools/shell-dialogs.sh` (dialog pictures),
   `tools/shell-drive.sh` (driven by Qt Test), `tools/shell-test-install.sh`, `tools/conflicts-shell-test.sh`.
@@ -238,7 +238,7 @@ tools/               build.sh, test.sh, e2e.sh, gen-instance, oracle/, probe/ (S
                      bench-overlay.sh, fake-nexus.py
 - Unit tests per crate, property tests for parsers (`proptest`), golden tests for installers and formats.
 - FUSE tests mount in a temp dir (needs `/dev/fuse`; skip with a clear message when absent).
-- Oracle checks (`spec/07-oracle.md`) as `tools/oracle/*.sh`, each exiting non-zero on mismatch.
+- Oracle checks (`docs/DESIGN.md`, "Oracle checks") as `tools/oracle/*.sh`, each exiting non-zero on mismatch.
 - `build/strata-shell-test` (`shell/tests/`, Qt Test): the same shell objects (CMake object library
   `strata_shell`) driven offscreen by clicks, keys, drops and answered dialogs on generated instances; it goes
   through `strata_run` too, so a deploy it starts finds `vfsd` in its own executable. `tools/shell-drive.sh`.
@@ -249,6 +249,6 @@ tools/               build.sh, test.sh, e2e.sh, gen-instance, oracle/, probe/ (S
 crates/<crate>/      Rust
 shell/               C++ Qt Widgets (CMake), forms/ = MO2 .ui files, resources/, tests/ = strata-shell-test
 tools/               build.sh, test.sh, e2e.sh, oracle/, gen-instance/, probe/ (SKSE probe plugin)
-spec/  docs/         design notes, the user guide, the architecture
+docs/                the design (DESIGN.md), the architecture, the user guide
 _stage/              scratch, oracle copies, logs (git-ignored)
 ```
